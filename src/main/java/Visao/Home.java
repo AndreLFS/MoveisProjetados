@@ -10,11 +10,15 @@ import Classe.Cliente;
 import Classe.Ferragens;
 import DAO.CategoriaFerragenDAO;
 import DAO.ClienteDAO;
+import DAO.FerragensDAO;
 import TableModel.CategoriaFerragensTableModel;
 import TableModel.ClienteTabelModel;
+import TableModel.FerragensTableModel;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 
 /**
  *
@@ -28,9 +32,12 @@ public class Home extends javax.swing.JFrame {
     
     public Home() {
         initComponents();
+        AutoCompleteDecorator.decorate(jCB_ItensFerragens);
         activarJIF(jIF_Home);
         atualizarTabelaBuscarCliente();
         atualizarTabelaBuscarCategoriaFerragen();
+        atualizarTabelaBuscarFerragen();
+        atualizarJcItensCadastrados();
     }
 
     /**
@@ -59,7 +66,7 @@ public class Home extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jT_BuscarFerragens = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jIf_BuscarCliente = new javax.swing.JInternalFrame();
@@ -113,9 +120,15 @@ public class Home extends javax.swing.JFrame {
         jPanel11 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jPanel12 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jL_CadastrarFerragem = new javax.swing.JLabel();
+        jCB_ItensFerragens = new javax.swing.JComboBox<>();
         jButton11 = new javax.swing.JButton();
+        jSeparator17 = new javax.swing.JSeparator();
+        jPanel23 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jCB_ManterTelaCadastroFerragens = new javax.swing.JCheckBox();
+        jL_MsgCadastroFerragens = new javax.swing.JLabel();
         jIF_CadastroProjeto = new javax.swing.JInternalFrame();
         jPanel16 = new javax.swing.JPanel();
         jSeparator18 = new javax.swing.JSeparator();
@@ -285,26 +298,20 @@ public class Home extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(102, 176, 175));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 326, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jT_BuscarFerragens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Descrição", "Quantidade", "Valor"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            }
+        ));
+        jT_BuscarFerragens.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jT_BuscarFerragensMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jT_BuscarFerragens);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 520, 330));
 
@@ -693,28 +700,33 @@ public class Home extends javax.swing.JFrame {
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Limpar");
         jLabel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 100, 40));
+        jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 100, 40));
 
-        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setText("Cadastrar");
-        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+        jL_CadastrarFerragem.setBackground(new java.awt.Color(255, 255, 255));
+        jL_CadastrarFerragem.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jL_CadastrarFerragem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_CadastrarFerragem.setText("Cadastrar");
+        jL_CadastrarFerragem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jL_CadastrarFerragem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel15MouseClicked(evt);
+                jL_CadastrarFerragemMouseClicked(evt);
             }
         });
 
@@ -722,25 +734,62 @@ public class Home extends javax.swing.JFrame {
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(jL_CadastrarFerragem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(jL_CadastrarFerragem, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel10.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 100, 40));
+        jPanel10.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 100, 40));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel10.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 240, -1));
+        jCB_ItensFerragens.setEditable(true);
+        jCB_ItensFerragens.setBorder(null);
+        jPanel10.add(jCB_ItensFerragens, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 280, -1));
 
-        jButton11.setText("jButton11");
+        jButton11.setText("+");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 30, -1));
+        jPanel10.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 40, -1));
+
+        jSeparator17.setBackground(new java.awt.Color(102, 176, 175));
+        jSeparator17.setForeground(new java.awt.Color(102, 176, 175));
+        jPanel10.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 326, 10));
+
+        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("Excluir");
+        jLabel24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel24MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jPanel10.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Categoria:");
+        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+
+        jCB_ManterTelaCadastroFerragens.setText("Manter na Tela");
+        jPanel10.add(jCB_ManterTelaCadastroFerragens, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
+        jPanel10.add(jL_MsgCadastroFerragens, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 250, 20));
 
         jIF_CadastroFerragens.getContentPane().add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -1184,6 +1233,20 @@ public class Home extends javax.swing.JFrame {
         jIF_CadastroCategoriaFerragens.setVisible(false);
         jInternalFrame.setVisible(true);
     }
+    
+    // <editor-fold defaultstate="collapsed" desc="Atualizar JCombox"> 
+    
+    private void atualizarJcItensCadastrados(){
+        CategoriaFerragenDAO categoriaFerragenDAO = new CategoriaFerragenDAO();
+        List<CategoriaFerragens> categoriaFerragenses = categoriaFerragenDAO.listar();
+        for (int i = 0; i < categoriaFerragenses.size(); i++) {
+            jCB_ItensFerragens.addItem(categoriaFerragenses.get(i).getDescricao());
+        }
+    }
+    
+    // </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="Atualizar Tabela"> 
     //atualiza as informações da tela buscar cliente
     ClienteTabelModel clienteTabelModel;
     public void atualizarTabelaBuscarCliente(){
@@ -1197,6 +1260,13 @@ public class Home extends javax.swing.JFrame {
             categoriaFerragensTableModel = new CategoriaFerragensTableModel(categoriaFerragenDAO.listar());
             jT_BucarCategoriaFerragem.setModel(categoriaFerragensTableModel);
     }
+    FerragensTableModel ferragensTableModel;
+    public void atualizarTabelaBuscarFerragen(){
+            FerragensDAO ferragensDAO = new FerragensDAO();
+            ferragensTableModel = new FerragensTableModel(ferragensDAO.listar());
+            jT_BuscarFerragens.setModel(ferragensTableModel);
+    }
+    // </editor-fold>
     // </editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="Eventos"> 
@@ -1325,16 +1395,46 @@ public class Home extends javax.swing.JFrame {
          activarJIF(jIF_Home);
     }//GEN-LAST:event_jLabel13MouseClicked
 
-    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        try {
+    private void jL_CadastrarFerragemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_CadastrarFerragemMouseClicked
+    try {
             //teste se existe campo vazio
-            if(jTF_DescricaoFerragen.getText().equals("Descrição") || jTF_DescricaoFerragen.getText().isEmpty() ){
+            if(jTF_DescricaoFerragen.getText().equals("Descrição") || jTF_DescricaoFerragen.getText().isEmpty() ||
+            jTF_ValorFerragen.getText().equals("Valor Compra") || jTF_ValorFerragen.getText().isEmpty() || 
+            jCB_ItensFerragens.getSelectedIndex() < 0){
+               JOptionPane.showMessageDialog(null, "Algum dos campos estão em branco");
+            }else{
+                CategoriaFerragenDAO categoriaFerragenDAO = new CategoriaFerragenDAO();
+                //teste na conversao do valor para double
+                try {
+                    ferragens.setValor(Double.parseDouble(jTF_ValorFerragen.getText()));
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "Erro no valor do produto");
+                }
+                ferragens.setDescricao(jTF_DescricaoFerragen.getText());
+                ferragens.setCategoriaFerragens(categoriaFerragenDAO.listar().get(jCB_ItensFerragens.getSelectedIndex()));
+                ferragens.setAtivo(true);
+                ferragens.setDataCadastro(new Date());
                 
+                FerragensDAO ferragensDAO = new FerragensDAO();
+                ferragensDAO.salvar(ferragens);
+                
+                if(jCB_ManterTelaCadastroFerragens.isSelected()){
+                    jL_MsgCadastroFerragens.setText("Ferragen " + ferragens.getDescricao()+" salva com sucesso");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Ferragem salva com sucesso");
+                    activarJIF(jIF_BuscarFerragens);
+                    jL_CadastrarFerragem.setText("");
+                    jCB_ManterTelaCadastroFerragens.setSelected(false);
+                }
+                limparCadastroFerragem();
+                jL_CadastrarFerragem.setText("Cadastrar");
+                jCB_ManterTelaCadastroFerragens.setVisible(true);
+                ferragens = new Ferragens();
             }
         } catch (Exception e) {
+            System.out.println("Erro no cadastro da ferragen " + e);
         }
-        activarJIF(jIF_Home);
-    }//GEN-LAST:event_jLabel15MouseClicked
+    }//GEN-LAST:event_jL_CadastrarFerragemMouseClicked
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
         activarJIF(jIF_Home);
@@ -1365,7 +1465,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jL_ExcluirClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_ExcluirClienteMouseClicked
-        if(jL_CadastrarCliente.equals("Editar")){
+        if(jL_CadastrarCliente.getText().equals("Editar")){
             if(JOptionPane.showConfirmDialog(null, "Deseja Excluir o Cliente") == 0){
                 try {
                     cliente.setAtivo(false);
@@ -1419,6 +1519,7 @@ public class Home extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Categoria salvo com sucesso");
                     activarJIF(jIF_BuscaCategoriaFerragem);
                 }
+                
                 jL_CadastrarCategoriaFerragens.setText("Cadastrar");
                 jCB_ManterTela.setVisible(true);
                 categoriaFerragens = new CategoriaFerragens();
@@ -1494,6 +1595,43 @@ public class Home extends javax.swing.JFrame {
     private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
         limparCadastroCategoriaFerragem();
     }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jT_BuscarFerragensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_BuscarFerragensMouseClicked
+        //editar ferragem
+        if(evt.getClickCount() == 2){
+           limparBuscaFerragem();
+           activarJIF(jIF_CadastroFerragens);
+           passarValoresEditarFerragens(ferragensTableModel.getValueAt(jT_BuscarFerragens.getSelectedRow())); 
+           jL_CadastrarFerragem.setText("Editar");
+           jCB_ManterTelaCadastroFerragens.setVisible(false);
+        }
+    }//GEN-LAST:event_jT_BuscarFerragensMouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+       //limpar ferragem 
+       limparCadastroFerragem();
+    }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void jLabel24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel24MouseClicked
+        if(jL_CadastrarFerragem.getText().equals("Editar")){
+            if(JOptionPane.showConfirmDialog(null, "Deseja Excluir a Ferragem") == 0){
+                try {
+                    ferragens.setAtivo(false);
+                    ferragens.setDataDesativacao(new Date());
+                    FerragensDAO ferragensDAO = new FerragensDAO();
+                    ferragensDAO.salvar(ferragens);
+                    JOptionPane.showMessageDialog(null, "Ferragem Excluido com sucesso");
+                    limparCadastroFerragem();
+                    atualizarTabelaBuscarFerragen();
+                    activarJIF(jIF_BuscarFerragens);
+                } catch (Exception e) {
+                    System.out.println("Erro delete ferragem" + e);
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Função desabilitada");
+        }
+    }//GEN-LAST:event_jLabel24MouseClicked
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Editar"> 
@@ -1509,10 +1647,24 @@ public class Home extends javax.swing.JFrame {
         jTF_CidadeCliente.setText(cliente.getCidade());
         
     }
-    //pega os valores do clinte selecionado e insere na tela para edição
     private void passarValoresEditarCategoriaFerragens(CategoriaFerragens categoriaFerragens){
         this.categoriaFerragens = categoriaFerragens;
-        jTF_DescricaoCategoriaFerragem.setText(categoriaFerragens.getDescricao());
+        jTF_DescricaoCategoriaFerragem.setText(categoriaFerragens.getDescricao()); 
+    }
+    private void passarValoresEditarFerragens(Ferragens ferragens){
+        this.ferragens = ferragens;
+        jTF_DescricaoFerragen.setText(ferragens.getDescricao()); 
+        jTF_ValorFerragen.setText(String.valueOf(ferragens.getValor())); 
+        
+        CategoriaFerragenDAO categoriaFerragenDAO = new CategoriaFerragenDAO();
+        List<CategoriaFerragens> categoriaFerragens = categoriaFerragenDAO.listar();
+        for (int i = 0; i < categoriaFerragens.size(); i++) {
+           
+           if(categoriaFerragens.get(i).getId()==(ferragens.getCategoriaFerragens().getId())){
+               jCB_ItensFerragens.setSelectedIndex(i); 
+               break;
+           }
+        }
         
     }
     // </editor-fold>
@@ -1550,7 +1702,21 @@ public class Home extends javax.swing.JFrame {
         jTF_BuscarCategoriaFerragen.setText("Buscar");
     }
     // </editor-fold> 
-    // </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="Limpeza de telas Ferragem"> 
+    //reseta valores padrões da tela de cadastro de categoria ferragem
+    private void limparCadastroFerragem(){
+        jCB_ItensFerragens.setSelectedIndex(0);
+        jTF_DescricaoFerragen.setText("Descrição");
+        jTF_ValorFerragen.setText("Valor Compra");
+    }
+    
+     //reseta valores padrões da tela de busca de categoria ferragem
+    private void limparBuscaFerragem(){
+        jTF_BuscarCategoriaFerragen.setText("Buscar");
+    }
+    // </editor-fold> 
+    // </editor-fold> 
     /**
      * @param args the command line arguments
      */
@@ -1599,9 +1765,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jCB_ItensFerragens;
     private javax.swing.JCheckBox jCB_ManterTela;
+    private javax.swing.JCheckBox jCB_ManterTelaCadastroFerragens;
     private javax.swing.JCheckBox jCB_ManterTelaCategoriaFerragen;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JInternalFrame jIF_BuscaCategoriaFerragem;
     private javax.swing.JInternalFrame jIF_BuscarFerragens;
@@ -1615,15 +1782,17 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JInternalFrame jIf_BuscarCliente;
     private javax.swing.JLabel jL_CadastrarCategoriaFerragens;
     private javax.swing.JLabel jL_CadastrarCliente;
+    private javax.swing.JLabel jL_CadastrarFerragem;
     private javax.swing.JLabel jL_ExcluirCategoriaFerragem;
     private javax.swing.JLabel jL_ExcluirCliente;
     private javax.swing.JLabel jL_MsgCadastroCliente;
+    private javax.swing.JLabel jL_MsgCadastroFerragens;
     private javax.swing.JLabel jL_MsgCategoriaFerragem;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -1632,6 +1801,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1652,6 +1822,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1674,6 +1845,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
     private javax.swing.JSeparator jSeparator16;
+    private javax.swing.JSeparator jSeparator17;
     private javax.swing.JSeparator jSeparator18;
     private javax.swing.JSeparator jSeparator19;
     private javax.swing.JSeparator jSeparator2;
@@ -1700,7 +1872,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField jTF_ValorFerragen;
     private javax.swing.JTable jT_BucarCategoriaFerragem;
     private javax.swing.JTable jT_BuscarCliente;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jT_BuscarFerragens;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
