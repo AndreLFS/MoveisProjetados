@@ -51,5 +51,6 @@ Contributor(s):
     <mapping class="Classe.Ferragens"/>
     <mapping class="Classe.Projeto"/>
     <mapping class="Classe.Usuario"/>
+    <mapping class="Classe.CategoriaFerragens"/>
   </session-factory>
 </hibernate-configuration>

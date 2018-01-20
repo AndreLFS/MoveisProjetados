@@ -9,6 +9,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -31,6 +32,8 @@ public class Ferragens {
     private Date dataDesativacao;
     //se ele ainda ira aparecer nas listas ou não
     private boolean ativo;
+    @OneToOne
+    private CategoriaFerragens categoriaFerragens;
     
     public Ferragens() {
     }
