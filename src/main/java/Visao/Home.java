@@ -8,14 +8,17 @@ package Visao;
 import Classe.CategoriaFerragens;
 import Classe.Cliente;
 import Classe.Ferragens;
+import Classe.Projeto;
 import DAO.CategoriaFerragenDAO;
 import DAO.ClienteDAO;
 import DAO.FerragensDAO;
 import TableModel.CategoriaFerragensTableModel;
 import TableModel.ClienteTabelModel;
 import TableModel.FerragensTableModel;
+import java.awt.Color;
 import java.util.Date;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -29,6 +32,7 @@ public class Home extends javax.swing.JFrame {
     private static Cliente cliente = new Cliente();
     private static Ferragens ferragens = new Ferragens();
     private static CategoriaFerragens categoriaFerragens = new CategoriaFerragens();
+    private static Projeto projeto = new Projeto();
     
     public Home() {
         initComponents();
@@ -64,7 +68,6 @@ public class Home extends javax.swing.JFrame {
         jIF_BuscarFerragens = new javax.swing.JInternalFrame();
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jT_BuscarFerragens = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -72,7 +75,6 @@ public class Home extends javax.swing.JFrame {
         jIf_BuscarCliente = new javax.swing.JInternalFrame();
         jPanel5 = new javax.swing.JPanel();
         jTF_BuscarCliente = new javax.swing.JTextField();
-        jSeparator2 = new javax.swing.JSeparator();
         jScrollPane2 = new javax.swing.JScrollPane();
         jT_BuscarCliente = new javax.swing.JTable();
         jButton9 = new javax.swing.JButton();
@@ -80,7 +82,6 @@ public class Home extends javax.swing.JFrame {
         jIF_BuscarProjeto = new javax.swing.JInternalFrame();
         jPanel6 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
@@ -88,16 +89,10 @@ public class Home extends javax.swing.JFrame {
         jIF_CadastroCliente = new javax.swing.JInternalFrame();
         jPanel7 = new javax.swing.JPanel();
         jTF_NomeCliente = new javax.swing.JTextField();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
         jTF_TelefoneCliente = new javax.swing.JTextField();
-        jSeparator6 = new javax.swing.JSeparator();
         jTF_CpfCliente = new javax.swing.JTextField();
-        jSeparator7 = new javax.swing.JSeparator();
         jTF_EnderecoCliente = new javax.swing.JTextField();
-        jSeparator8 = new javax.swing.JSeparator();
         jTF_BairroCliente = new javax.swing.JTextField();
-        jSeparator9 = new javax.swing.JSeparator();
         jTF_CidadeCliente = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -111,9 +106,7 @@ public class Home extends javax.swing.JFrame {
         jL_ExcluirCliente = new javax.swing.JLabel();
         jIF_CadastroFerragens = new javax.swing.JInternalFrame();
         jPanel10 = new javax.swing.JPanel();
-        jSeparator12 = new javax.swing.JSeparator();
         jTF_DescricaoFerragen = new javax.swing.JTextField();
-        jSeparator13 = new javax.swing.JSeparator();
         jTF_ValorFerragen = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -123,7 +116,6 @@ public class Home extends javax.swing.JFrame {
         jL_CadastrarFerragem = new javax.swing.JLabel();
         jCB_ItensFerragens = new javax.swing.JComboBox<>();
         jButton11 = new javax.swing.JButton();
-        jSeparator17 = new javax.swing.JSeparator();
         jPanel23 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -131,24 +123,20 @@ public class Home extends javax.swing.JFrame {
         jL_MsgCadastroFerragens = new javax.swing.JLabel();
         jIF_CadastroProjeto = new javax.swing.JInternalFrame();
         jPanel16 = new javax.swing.JPanel();
-        jSeparator18 = new javax.swing.JSeparator();
-        jTextField18 = new javax.swing.JTextField();
-        jSeparator19 = new javax.swing.JSeparator();
-        jTextField19 = new javax.swing.JTextField();
+        jTF_FormaPagamento = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jPanel17 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        jSeparator20 = new javax.swing.JSeparator();
-        jTextField20 = new javax.swing.JTextField();
-        jSeparator10 = new javax.swing.JSeparator();
-        jSeparator11 = new javax.swing.JSeparator();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField21 = new javax.swing.JTextField();
-        jSeparator21 = new javax.swing.JSeparator();
+        jTF_Comodo = new javax.swing.JTextField();
+        jTF_NumeroMoveis = new javax.swing.JTextField();
+        jCB_ClienteProjeto = new javax.swing.JComboBox<>();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jIF_CadastroProjeto2 = new javax.swing.JInternalFrame();
         jPanel13 = new javax.swing.JPanel();
         jTextField14 = new javax.swing.JTextField();
@@ -161,7 +149,6 @@ public class Home extends javax.swing.JFrame {
         jTextField15 = new javax.swing.JTextField();
         jIF_CadastroCategoriaFerragens = new javax.swing.JInternalFrame();
         jPanel19 = new javax.swing.JPanel();
-        jSeparator16 = new javax.swing.JSeparator();
         jTF_DescricaoCategoriaFerragem = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -176,7 +163,6 @@ public class Home extends javax.swing.JFrame {
         jIF_BuscaCategoriaFerragem = new javax.swing.JInternalFrame();
         jPanel27 = new javax.swing.JPanel();
         jTF_BuscarCategoriaFerragen = new javax.swing.JTextField();
-        jSeparator27 = new javax.swing.JSeparator();
         jScrollPane5 = new javax.swing.JScrollPane();
         jT_BucarCategoriaFerragem = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
@@ -291,12 +277,8 @@ public class Home extends javax.swing.JFrame {
 
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField1.setText("Buscar");
-        jTextField1.setBorder(null);
+        jTextField1.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 326, -1));
-
-        jSeparator1.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator1.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 326, -1));
 
         jT_BuscarFerragens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -355,17 +337,13 @@ public class Home extends javax.swing.JFrame {
 
         jTF_BuscarCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_BuscarCliente.setText("Buscar");
-        jTF_BuscarCliente.setBorder(null);
+        jTF_BuscarCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_BuscarCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTF_BuscarClienteKeyPressed(evt);
             }
         });
         jPanel5.add(jTF_BuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 326, -1));
-
-        jSeparator2.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator2.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel5.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 326, -1));
 
         jT_BuscarCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -418,12 +396,8 @@ public class Home extends javax.swing.JFrame {
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField3.setText("Buscar");
-        jTextField3.setBorder(null);
+        jTextField3.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 326, -1));
-
-        jSeparator3.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator3.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel6.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 326, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -471,7 +445,7 @@ public class Home extends javax.swing.JFrame {
 
         jTF_NomeCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_NomeCliente.setText("Nome Completo");
-        jTF_NomeCliente.setBorder(null);
+        jTF_NomeCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_NomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_NomeClienteActionPerformed(evt);
@@ -479,17 +453,9 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel7.add(jTF_NomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 326, 20));
 
-        jSeparator4.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator4.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel7.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 326, -1));
-
-        jSeparator5.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator5.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel7.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 326, -1));
-
         jTF_TelefoneCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_TelefoneCliente.setText("Telefone");
-        jTF_TelefoneCliente.setBorder(null);
+        jTF_TelefoneCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_TelefoneCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_TelefoneClienteActionPerformed(evt);
@@ -497,13 +463,9 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel7.add(jTF_TelefoneCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 326, 20));
 
-        jSeparator6.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator6.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel7.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 326, -1));
-
         jTF_CpfCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_CpfCliente.setText("Cpf");
-        jTF_CpfCliente.setBorder(null);
+        jTF_CpfCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_CpfCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_CpfClienteActionPerformed(evt);
@@ -511,13 +473,9 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel7.add(jTF_CpfCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 326, 20));
 
-        jSeparator7.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator7.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel7.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 326, -1));
-
         jTF_EnderecoCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_EnderecoCliente.setText("Endereço");
-        jTF_EnderecoCliente.setBorder(null);
+        jTF_EnderecoCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_EnderecoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_EnderecoClienteActionPerformed(evt);
@@ -525,13 +483,9 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel7.add(jTF_EnderecoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 326, 20));
 
-        jSeparator8.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator8.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel7.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 160, -1));
-
         jTF_BairroCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_BairroCliente.setText("Bairro");
-        jTF_BairroCliente.setBorder(null);
+        jTF_BairroCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_BairroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_BairroClienteActionPerformed(evt);
@@ -539,13 +493,9 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel7.add(jTF_BairroCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 160, 20));
 
-        jSeparator9.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator9.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel7.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 160, -1));
-
         jTF_CidadeCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_CidadeCliente.setText("Cidade");
-        jTF_CidadeCliente.setBorder(null);
+        jTF_CidadeCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_CidadeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_CidadeClienteActionPerformed(evt);
@@ -653,13 +603,9 @@ public class Home extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSeparator12.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator12.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel10.add(jSeparator12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 326, -1));
-
         jTF_DescricaoFerragen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_DescricaoFerragen.setText("Descrição");
-        jTF_DescricaoFerragen.setBorder(null);
+        jTF_DescricaoFerragen.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_DescricaoFerragen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_DescricaoFerragenActionPerformed(evt);
@@ -667,13 +613,9 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel10.add(jTF_DescricaoFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 326, 20));
 
-        jSeparator13.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator13.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel10.add(jSeparator13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 326, -1));
-
         jTF_ValorFerragen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_ValorFerragen.setText("Valor Compra");
-        jTF_ValorFerragen.setBorder(null);
+        jTF_ValorFerragen.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_ValorFerragen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_ValorFerragenActionPerformed(evt);
@@ -744,7 +686,7 @@ public class Home extends javax.swing.JFrame {
         jPanel10.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 100, 40));
 
         jCB_ItensFerragens.setEditable(true);
-        jCB_ItensFerragens.setBorder(null);
+        jCB_ItensFerragens.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jPanel10.add(jCB_ItensFerragens, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 280, -1));
 
         jButton11.setText("+");
@@ -754,10 +696,6 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel10.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 40, -1));
-
-        jSeparator17.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator17.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel10.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 326, 10));
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -801,33 +739,15 @@ public class Home extends javax.swing.JFrame {
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSeparator18.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator18.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel16.add(jSeparator18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 326, -1));
-
-        jTextField18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField18.setText("Nome do Cliente");
-        jTextField18.setBorder(null);
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+        jTF_FormaPagamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTF_FormaPagamento.setText("Forma de Pagamento");
+        jTF_FormaPagamento.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
+        jTF_FormaPagamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
+                jTF_FormaPagamentoActionPerformed(evt);
             }
         });
-        jPanel16.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 326, 20));
-
-        jSeparator19.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator19.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel16.add(jSeparator19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 326, -1));
-
-        jTextField19.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField19.setText("Forma de Pagamento");
-        jTextField19.setBorder(null);
-        jTextField19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField19ActionPerformed(evt);
-            }
-        });
-        jPanel16.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 326, 20));
+        jPanel16.add(jTF_FormaPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 326, 20));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel20.setText("Cadastro de Projetos");
@@ -886,61 +806,38 @@ public class Home extends javax.swing.JFrame {
 
         jPanel16.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 100, 40));
 
-        jSeparator20.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator20.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel16.add(jSeparator20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 160, -1));
-
-        jTextField20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField20.setText("Comodo");
-        jTextField20.setBorder(null);
-        jTextField20.addActionListener(new java.awt.event.ActionListener() {
+        jTF_Comodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTF_Comodo.setText("Comodo");
+        jTF_Comodo.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
+        jTF_Comodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField20ActionPerformed(evt);
+                jTF_ComodoActionPerformed(evt);
             }
         });
-        jPanel16.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 160, 20));
+        jPanel16.add(jTF_Comodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 160, 20));
 
-        jSeparator10.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator10.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel16.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 160, -1));
-
-        jSeparator11.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator11.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel16.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 160, -1));
-
-        jTextField10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField10.setText("Data Inicio");
-        jTextField10.setBorder(null);
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        jTF_NumeroMoveis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTF_NumeroMoveis.setText("Numero de Moveis");
+        jTF_NumeroMoveis.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
+        jTF_NumeroMoveis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                jTF_NumeroMoveisActionPerformed(evt);
             }
         });
-        jPanel16.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 160, 20));
+        jPanel16.add(jTF_NumeroMoveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 160, 20));
 
-        jTextField11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField11.setText("Data Final");
-        jTextField11.setBorder(null);
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-        jPanel16.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 160, 20));
+        jCB_ClienteProjeto.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
+        jPanel16.add(jCB_ClienteProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 330, -1));
+        jPanel16.add(jXDatePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 220, -1));
+        jPanel16.add(jXDatePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 220, -1));
 
-        jTextField21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField21.setText("Numero de Moveis");
-        jTextField21.setBorder(null);
-        jTextField21.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField21ActionPerformed(evt);
-            }
-        });
-        jPanel16.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 160, 20));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Data Inicial");
+        jPanel16.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
-        jSeparator21.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator21.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel16.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 160, -1));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Data Final");
+        jPanel16.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
 
         jIF_CadastroProjeto.getContentPane().add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -1014,13 +911,9 @@ public class Home extends javax.swing.JFrame {
         jPanel19.setBackground(new java.awt.Color(255, 255, 255));
         jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jSeparator16.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator16.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel19.add(jSeparator16, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 326, -1));
-
         jTF_DescricaoCategoriaFerragem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_DescricaoCategoriaFerragem.setText("Descrição");
-        jTF_DescricaoCategoriaFerragem.setBorder(null);
+        jTF_DescricaoCategoriaFerragem.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_DescricaoCategoriaFerragem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_DescricaoCategoriaFerragemActionPerformed(evt);
@@ -1155,12 +1048,8 @@ public class Home extends javax.swing.JFrame {
 
         jTF_BuscarCategoriaFerragen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_BuscarCategoriaFerragen.setText("Buscar");
-        jTF_BuscarCategoriaFerragen.setBorder(null);
+        jTF_BuscarCategoriaFerragen.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jPanel27.add(jTF_BuscarCategoriaFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 326, -1));
-
-        jSeparator27.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator27.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel27.add(jSeparator27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 326, -1));
 
         jT_BucarCategoriaFerragem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1188,7 +1077,7 @@ public class Home extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel27.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 80, -1));
+        jPanel27.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 80, -1));
 
         jButton6.setText("Buscar");
         jPanel27.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
@@ -1302,25 +1191,13 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTF_ValorFerragenActionPerformed
 
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+    private void jTF_FormaPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_FormaPagamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
+    }//GEN-LAST:event_jTF_FormaPagamentoActionPerformed
 
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+    private void jTF_ComodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_ComodoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
-
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
+    }//GEN-LAST:event_jTF_ComodoActionPerformed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         activarJIF(jIf_BuscarCliente);
@@ -1396,7 +1273,8 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jL_CadastrarFerragemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_CadastrarFerragemMouseClicked
-    try {
+        //cadastro de ferragem
+        try {
             //teste se existe campo vazio
             if(jTF_DescricaoFerragen.getText().equals("Descrição") || jTF_DescricaoFerragen.getText().isEmpty() ||
             jTF_ValorFerragen.getText().equals("Valor Compra") || jTF_ValorFerragen.getText().isEmpty() || 
@@ -1441,16 +1319,36 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel21MouseClicked
 
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
-         activarJIF(jIF_CadastroProjeto2);
+        if(jCB_ClienteProjeto.getSelectedIndex() < 0){
+            JOptionPane.showMessageDialog(null, "Nenhum Cliente Selecionado");
+        }else if(true){
+            //teste se os campos de dartas estao validos
+        }else if(jTF_Comodo.getText().equals("Comodo") || jTF_Comodo.getText().isEmpty() ||
+                jTF_NumeroMoveis.getText().equals("Numero de Moveis") || jTF_NumeroMoveis.getText().isEmpty() ||
+                jTF_FormaPagamento.getText().equals("Forma de Pagamento") || jTF_FormaPagamento.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Algum Campo em Branco");
+        }else{
+            try {
+                projeto.setCliente(cliente);
+                projeto.setComodo(jTF_Comodo.getText());
+                projeto.setNumeroMoveis(jTF_NumeroMoveis.getText());
+                projeto.setFormaPagamento(jTF_FormaPagamento.getText());
+                
+                
+            } catch (Exception e) {
+                System.out.println("Erro no cadastro de projeto part1 " + e);
+            }
+        }
+        activarJIF(jIF_CadastroProjeto2);
     }//GEN-LAST:event_jLabel23MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
          activarJIF(jIF_Home);
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
+    private void jTF_NumeroMoveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_NumeroMoveisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField21ActionPerformed
+    }//GEN-LAST:event_jTF_NumeroMoveisActionPerformed
 
     private void jTF_BuscarClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF_BuscarClienteKeyPressed
         // TODO add your handling code here:
@@ -1765,6 +1663,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jCB_ClienteProjeto;
     private javax.swing.JComboBox<String> jCB_ItensFerragens;
     private javax.swing.JCheckBox jCB_ManterTela;
     private javax.swing.JCheckBox jCB_ManterTelaCadastroFerragens;
@@ -1797,11 +1696,13 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1837,37 +1738,20 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
-    private javax.swing.JSeparator jSeparator12;
-    private javax.swing.JSeparator jSeparator13;
     private javax.swing.JSeparator jSeparator14;
     private javax.swing.JSeparator jSeparator15;
-    private javax.swing.JSeparator jSeparator16;
-    private javax.swing.JSeparator jSeparator17;
-    private javax.swing.JSeparator jSeparator18;
-    private javax.swing.JSeparator jSeparator19;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator20;
-    private javax.swing.JSeparator jSeparator21;
-    private javax.swing.JSeparator jSeparator27;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextField jTF_BairroCliente;
     private javax.swing.JTextField jTF_BuscarCategoriaFerragen;
     private javax.swing.JTextField jTF_BuscarCliente;
     private javax.swing.JTextField jTF_CidadeCliente;
+    private javax.swing.JTextField jTF_Comodo;
     private javax.swing.JTextField jTF_CpfCliente;
     private javax.swing.JTextField jTF_DescricaoCategoriaFerragem;
     private javax.swing.JTextField jTF_DescricaoFerragen;
     private javax.swing.JTextField jTF_EnderecoCliente;
+    private javax.swing.JTextField jTF_FormaPagamento;
     private javax.swing.JTextField jTF_NomeCliente;
+    private javax.swing.JTextField jTF_NumeroMoveis;
     private javax.swing.JTextField jTF_TelefoneCliente;
     private javax.swing.JTextField jTF_ValorFerragen;
     private javax.swing.JTable jT_BucarCategoriaFerragem;
@@ -1876,14 +1760,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField3;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker2;
     // End of variables declaration//GEN-END:variables
 }
