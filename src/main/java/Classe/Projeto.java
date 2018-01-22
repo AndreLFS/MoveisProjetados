@@ -5,13 +5,17 @@
  */
 package Classe;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -34,11 +38,9 @@ public class Projeto {
     private Date dataCadastro;
     //se ele ainda ira aparecer nas listas ou não
     private boolean ativo;
-    //@ManyToMany
-   /*  @JoinTable(name="pessoa_has_notebooks", joinColumns=
-      {@JoinColumn(name="pessoa_id")}, inverseJoinColumns=
-        {@JoinColumn(name="notebook_id")})*/
-  //  private List<Ferragens> materiais;
+    
+    @OneToMany( mappedBy = "projeto_ferragen")
+    private List<Ferragens> materiais = new ArrayList<Ferragens>();
 
     public Projeto() {
     }
@@ -110,5 +112,14 @@ public class Projeto {
     public void setComodo(String comodo) {
         this.comodo = comodo;
     }
+
+    public List<Ferragens> getMateriais() {
+        return materiais;
+    }
+
+    public void setMateriais(List<Ferragens> materiais) {
+        this.materiais = materiais;
+    }
+    
     
 }

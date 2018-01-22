@@ -12,9 +12,11 @@ import Classe.Projeto;
 import DAO.CategoriaFerragenDAO;
 import DAO.ClienteDAO;
 import DAO.FerragensDAO;
+import DAO.ProjetoDAO;
 import TableModel.CategoriaFerragensTableModel;
 import TableModel.ClienteTabelModel;
 import TableModel.FerragensTableModel;
+import TableModel.ProjetoTableModel;
 import java.awt.Color;
 import java.util.Date;
 import java.util.List;
@@ -41,7 +43,11 @@ public class Home extends javax.swing.JFrame {
         atualizarTabelaBuscarCliente();
         atualizarTabelaBuscarCategoriaFerragen();
         atualizarTabelaBuscarFerragen();
+        atualizarTabelaBuscarProjeto();
+        
+        
         atualizarJcItensCadastrados();
+        atualizarJcProjetoCliente();
     }
 
     /**
@@ -83,7 +89,7 @@ public class Home extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jTextField3 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jT_BuscarProjeto = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jIF_CadastroCliente = new javax.swing.JInternalFrame();
@@ -133,20 +139,19 @@ public class Home extends javax.swing.JFrame {
         jTF_Comodo = new javax.swing.JTextField();
         jTF_NumeroMoveis = new javax.swing.JTextField();
         jCB_ClienteProjeto = new javax.swing.JComboBox<>();
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
-        jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
+        jDP_DataFinal = new org.jdesktop.swingx.JXDatePicker();
+        jDP_DataInicial = new org.jdesktop.swingx.JXDatePicker();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jIF_CadastroProjeto2 = new javax.swing.JInternalFrame();
         jPanel13 = new javax.swing.JPanel();
-        jTextField14 = new javax.swing.JTextField();
-        jSeparator14 = new javax.swing.JSeparator();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jSeparator15 = new javax.swing.JSeparator();
         jTextField15 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jIF_CadastroCategoriaFerragens = new javax.swing.JInternalFrame();
         jPanel19 = new javax.swing.JPanel();
         jTF_DescricaoCategoriaFerragem = new javax.swing.JTextField();
@@ -399,7 +404,7 @@ public class Home extends javax.swing.JFrame {
         jTextField3.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 326, -1));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jT_BuscarProjeto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -418,7 +423,7 @@ public class Home extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(jT_BuscarProjeto);
 
         jPanel6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 520, 330));
 
@@ -828,8 +833,8 @@ public class Home extends javax.swing.JFrame {
 
         jCB_ClienteProjeto.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jPanel16.add(jCB_ClienteProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 330, -1));
-        jPanel16.add(jXDatePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 220, -1));
-        jPanel16.add(jXDatePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 220, -1));
+        jPanel16.add(jDP_DataFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 250, -1));
+        jPanel16.add(jDP_DataInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 250, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Data Inicial");
@@ -848,15 +853,6 @@ public class Home extends javax.swing.JFrame {
 
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextField14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField14.setText("Item");
-        jTextField14.setBorder(null);
-        jPanel13.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 170, -1));
-
-        jSeparator14.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator14.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel13.add(jSeparator14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 170, -1));
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -892,14 +888,16 @@ public class Home extends javax.swing.JFrame {
         jButton8.setText("Adcionar");
         jPanel13.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
-        jSeparator15.setBackground(new java.awt.Color(102, 176, 175));
-        jSeparator15.setForeground(new java.awt.Color(102, 176, 175));
-        jPanel13.add(jSeparator15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 150, -1));
-
         jTextField15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField15.setText("Quantidade");
         jTextField15.setBorder(null);
-        jPanel13.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 150, -1));
+        jPanel13.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 80, -1));
+
+        jComboBox1.setEditable(true);
+        jPanel13.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, -1));
+
+        jComboBox2.setEditable(true);
+        jPanel13.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 110, -1));
 
         jIF_CadastroProjeto2.getContentPane().add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -1133,6 +1131,14 @@ public class Home extends javax.swing.JFrame {
         }
     }
     
+    private void atualizarJcProjetoCliente(){
+        ClienteDAO clienteDAO = new ClienteDAO();
+        List<Cliente> clientes = clienteDAO.listar();
+        for (int i = 0; i < clientes.size(); i++) {
+            jCB_ClienteProjeto.addItem(clientes.get(i).getNome());
+        }
+    }
+    
     // </editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="Atualizar Tabela"> 
@@ -1154,6 +1160,12 @@ public class Home extends javax.swing.JFrame {
             FerragensDAO ferragensDAO = new FerragensDAO();
             ferragensTableModel = new FerragensTableModel(ferragensDAO.listar());
             jT_BuscarFerragens.setModel(ferragensTableModel);
+    }
+    ProjetoTableModel projetoTableModel;
+    public void atualizarTabelaBuscarProjeto(){
+            ProjetoDAO projetoDAO = new ProjetoDAO();
+            projetoTableModel = new ProjetoTableModel(projetoDAO.listar());
+            jT_BuscarProjeto.setModel(projetoTableModel);
     }
     // </editor-fold>
     // </editor-fold>
@@ -1321,25 +1333,33 @@ public class Home extends javax.swing.JFrame {
     private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
         if(jCB_ClienteProjeto.getSelectedIndex() < 0){
             JOptionPane.showMessageDialog(null, "Nenhum Cliente Selecionado");
-        }else if(true){
-            //teste se os campos de dartas estao validos
         }else if(jTF_Comodo.getText().equals("Comodo") || jTF_Comodo.getText().isEmpty() ||
                 jTF_NumeroMoveis.getText().equals("Numero de Moveis") || jTF_NumeroMoveis.getText().isEmpty() ||
-                jTF_FormaPagamento.getText().equals("Forma de Pagamento") || jTF_FormaPagamento.getText().isEmpty()){
+                jTF_FormaPagamento.getText().equals("Forma de Pagamento") || jTF_FormaPagamento.getText().isEmpty()||
+                jDP_DataInicial.getDate().equals("") || jDP_DataFinal.getDate().equals("")){
             JOptionPane.showMessageDialog(null, "Algum Campo em Branco");
+        }else if(jDP_DataInicial.getDate().before(new Date()) || jDP_DataFinal.getDate().before(jDP_DataInicial.getDate())){
+            JOptionPane.showMessageDialog(null, "Datas Incompativeis");
         }else{
             try {
-                projeto.setCliente(cliente);
+                ClienteDAO clienteDAO = new ClienteDAO();
+                projeto.setCliente(clienteDAO.listar().get(jCB_ClienteProjeto.getSelectedIndex()));
                 projeto.setComodo(jTF_Comodo.getText());
                 projeto.setNumeroMoveis(jTF_NumeroMoveis.getText());
                 projeto.setFormaPagamento(jTF_FormaPagamento.getText());
+                projeto.setDataInico(jDP_DataInicial.getDate());
+                projeto.setDataFinal(jDP_DataFinal.getDate());
+                projeto.setAtivo(true);
+                projeto.setDataCadastro(new Date());
                 
+                ProjetoDAO projetoDAO = new ProjetoDAO();
+                projetoDAO.salvar(projeto);
                 
+                activarJIF(jIF_CadastroProjeto2);
             } catch (Exception e) {
                 System.out.println("Erro no cadastro de projeto part1 " + e);
             }
         }
-        activarJIF(jIF_CadastroProjeto2);
     }//GEN-LAST:event_jLabel23MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -1668,6 +1688,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCB_ManterTela;
     private javax.swing.JCheckBox jCB_ManterTelaCadastroFerragens;
     private javax.swing.JCheckBox jCB_ManterTelaCategoriaFerragen;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private org.jdesktop.swingx.JXDatePicker jDP_DataFinal;
+    private org.jdesktop.swingx.JXDatePicker jDP_DataInicial;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JInternalFrame jIF_BuscaCategoriaFerragem;
     private javax.swing.JInternalFrame jIF_BuscarFerragens;
@@ -1738,8 +1762,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JSeparator jSeparator14;
-    private javax.swing.JSeparator jSeparator15;
     private javax.swing.JTextField jTF_BairroCliente;
     private javax.swing.JTextField jTF_BuscarCategoriaFerragen;
     private javax.swing.JTextField jTF_BuscarCliente;
@@ -1757,13 +1779,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTable jT_BucarCategoriaFerragem;
     private javax.swing.JTable jT_BuscarCliente;
     private javax.swing.JTable jT_BuscarFerragens;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jT_BuscarProjeto;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField3;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker2;
     // End of variables declaration//GEN-END:variables
 }
