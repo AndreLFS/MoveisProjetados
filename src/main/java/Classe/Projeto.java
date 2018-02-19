@@ -7,7 +7,9 @@ package Classe;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -39,8 +41,8 @@ public class Projeto {
     //se ele ainda ira aparecer nas listas ou não
     private boolean ativo;
     
-    @OneToMany( mappedBy = "projeto_ferragen")
-    private List<Ferragens> materiais = new ArrayList<Ferragens>();
+    @OneToMany(mappedBy = "projeto")
+    private Set<projeto_ferragen> projeto_ferragems = new HashSet<projeto_ferragen>();
 
     public Projeto() {
     }
@@ -113,13 +115,7 @@ public class Projeto {
         this.comodo = comodo;
     }
 
-    public List<Ferragens> getMateriais() {
-        return materiais;
-    }
 
-    public void setMateriais(List<Ferragens> materiais) {
-        this.materiais = materiais;
-    }
     
     
 }

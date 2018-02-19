@@ -6,6 +6,7 @@
 package DAO;
 
 import Classe.Projeto;
+import java.util.Date;
 
 /**
  *
@@ -16,5 +17,9 @@ public class ProjetoDAO extends GenericoDAO<Projeto>{
     public ProjetoDAO() {
         super(Projeto.class);
     }
-
+    @Override
+    public boolean deletar(Projeto projeto) {
+        projeto.setAtivo(false);
+        return super.editar(projeto);
+    }
 }

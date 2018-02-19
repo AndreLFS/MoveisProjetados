@@ -6,6 +6,7 @@
 package DAO;
 
 import Classe.CategoriaFerragens;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -49,5 +50,12 @@ public class CategoriaFerragenDAO extends GenericoDAO<CategoriaFerragens>{
             sessao.close();
         }
         return lista;
+    }
+    
+    @Override
+    public boolean deletar(CategoriaFerragens categoriaFerragens) {
+        categoriaFerragens.setAtivo(false);
+        categoriaFerragens.setDataDesativacao(new Date());
+        return super.editar(categoriaFerragens);
     }
 }

@@ -6,9 +6,12 @@
 package Classe;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -34,6 +37,9 @@ public class Ferragens {
     private boolean ativo;
     @OneToOne
     private CategoriaFerragens categoriaFerragens;
+    
+    @OneToMany(mappedBy = "ferragens")
+    private Set<projeto_ferragen> projeto_ferragens = new HashSet<projeto_ferragen>();
     
     public Ferragens() {
     }

@@ -1386,10 +1386,8 @@ public class Home extends javax.swing.JFrame {
         if(jL_CadastrarCliente.getText().equals("Editar")){
             if(JOptionPane.showConfirmDialog(null, "Deseja Excluir o Cliente") == 0){
                 try {
-                    cliente.setAtivo(false);
-                    cliente.setDataDesativacao(new Date());
                     ClienteDAO clienteDAO = new ClienteDAO();
-                    clienteDAO.salvar(cliente);
+                    clienteDAO.deletar(cliente);
                     JOptionPane.showMessageDialog(null, "Cliente Excluido com sucesso");
                     limparCadastroCliente();
                     activarJIF(jIf_BuscarCliente);

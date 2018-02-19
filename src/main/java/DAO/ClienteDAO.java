@@ -6,6 +6,7 @@
 package DAO;
 
 import Classe.Cliente;
+import java.util.Date;
 import java.util.List;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
@@ -48,6 +49,13 @@ public class ClienteDAO  extends GenericoDAO<Cliente>{
             sessao.close();
         }
         return lista;
+    }
+    
+    @Override
+    public boolean deletar(Cliente cliente) {
+        cliente.setAtivo(false);
+        cliente.setDataDesativacao(new Date());
+        return super.editar(cliente);
     }
     
 }

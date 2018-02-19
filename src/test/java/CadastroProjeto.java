@@ -1,8 +1,10 @@
 
 import Classe.Ferragens;
 import Classe.Projeto;
+import Classe.projeto_ferragen;
 import DAO.FerragensDAO;
 import DAO.ProjetoDAO;
+import DAO.ProjetoFerragemDAO;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,17 +20,21 @@ import java.util.List;
  */
 public class CadastroProjeto {
     public static void main(String[] args) {
-        FerragensDAO ferragensDAO = new FerragensDAO();
-        Ferragens ferragens = ferragensDAO.listar().get(0);
-        
-        List<Ferragens> materiais = new ArrayList<Ferragens>();
-        materiais.add(ferragens);
-        materiais.add(ferragens);
+        Ferragens ferragens = new Ferragens();
+        ferragens.setAtivo(true);
+        ferragens.setDescricao("sdfjkngu2kjsd");
         
         Projeto projeto = new Projeto();
-        projeto.setMateriais(materiais);
+        projeto.setAtivo(true);
+        projeto.setComodo("quart2o");
         
-        ProjetoDAO projetoDAO = new ProjetoDAO();
-        projetoDAO.salvar(projeto);
+        projeto_ferragen n = new projeto_ferragen();
+        n.setFerragens(ferragens);
+        n.setProjeto(projeto);
+        n.setValor(2121);
+        
+        ProjetoFerragemDAO projetoFerragemDAO = new ProjetoFerragemDAO();
+        projetoFerragemDAO.salvar(n);
+        
     }
 }
