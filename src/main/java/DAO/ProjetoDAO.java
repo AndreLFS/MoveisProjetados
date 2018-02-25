@@ -18,6 +18,15 @@ public class ProjetoDAO extends GenericoDAO<Projeto>{
         super(Projeto.class);
     }
     @Override
+    public boolean salvar(Projeto projeto) {
+        if(projeto.getId()== 0){
+            return super.salvar(projeto);
+        }else{
+            return super.editar(projeto);
+        }
+    }
+    
+    @Override
     public boolean deletar(Projeto projeto) {
         projeto.setAtivo(false);
         return super.editar(projeto);

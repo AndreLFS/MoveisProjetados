@@ -5,7 +5,8 @@
  */
 package TableModel;
 
-import Classe.Projeto;
+import Classe.CategoriaFerragens;
+import Classe.projeto_ferragen;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -13,17 +14,17 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author LAB1
  */
-public class ProjetoTableModel extends AbstractTableModel{
-    private String[] colunas = {"CLIENTE", "COMODO", "DATA FINAL", "VALOR PROJETO"}; 
-    private List<Projeto> projetos;
+public class ProjetoFerragemTableModel extends AbstractTableModel{
+    private String[] colunas = {"Descrição", "Quantidade", "Valor"}; 
+    private List<projeto_ferragen> projetoFerragem;
 
-    public ProjetoTableModel(List<Projeto> projetos) {
-        this.projetos = projetos;
+    public ProjetoFerragemTableModel(List<projeto_ferragen> projetoFerragem) {
+        this.projetoFerragem = projetoFerragem;
     }
 
     @Override
     public int getRowCount() {
-        return projetos.size();
+        return projetoFerragem.size();
     }
     @Override
     public int getColumnCount() {
@@ -31,22 +32,20 @@ public class ProjetoTableModel extends AbstractTableModel{
     }
     
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Projeto projeto = projetos.get(rowIndex);
+        projeto_ferragen projetoFerragen = projetoFerragem.get(rowIndex);
         switch (columnIndex){
             case 0:
-                return projeto.getCliente().getNome();
+                return projetoFerragen.getFerragens().getDescricao();
             case 1:
-                return projeto.getComodo();
+                return projetoFerragen.getQuantidade();
             case 2:
-                return projeto.getDataFinal();
-            case 3:
-                return projeto.getValorProjeto();
+                return projetoFerragen.getValorTotal();
         }
         return null;
     }
     
-    public Projeto getValueAt(int rowIndex){
-        return projetos.get(rowIndex);
+    public projeto_ferragen getValueAt(int rowIndex){
+        return projetoFerragem.get(rowIndex);
     }
 
     @Override
@@ -58,8 +57,6 @@ public class ProjetoTableModel extends AbstractTableModel{
                 return colunas[1];
             case 2:
                 return colunas[2];
-            case 3:
-                return colunas[3];
         }
          return null;
     }

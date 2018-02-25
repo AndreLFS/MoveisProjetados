@@ -5,6 +5,7 @@
  */
 package Classe;
 
+import DAO.ProjetoFerragemDAO;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -40,6 +41,7 @@ public class Projeto {
     private Date dataCadastro;
     //se ele ainda ira aparecer nas listas ou não
     private boolean ativo;
+    private double valorProjeto;
     
     @OneToMany(mappedBy = "projeto")
     private Set<projeto_ferragen> projeto_ferragems = new HashSet<projeto_ferragen>();
@@ -113,6 +115,18 @@ public class Projeto {
 
     public void setComodo(String comodo) {
         this.comodo = comodo;
+    }
+
+    public double getValorProjeto() {
+        return valorProjeto;
+    }
+
+    public void setValorProjeto() {
+        ProjetoFerragemDAO projetoFerragemDAO = new ProjetoFerragemDAO();
+        List<projeto_ferragen> list = projetoFerragemDAO.listarCampos("projeto", this);
+        for (int i = 0; i < list.size(); i++) {
+            valorProjeto += list.get(i).getValorTotal();
+        }
     }
 
 

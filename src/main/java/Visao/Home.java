@@ -9,18 +9,22 @@ import Classe.CategoriaFerragens;
 import Classe.Cliente;
 import Classe.Ferragens;
 import Classe.Projeto;
+import Classe.projeto_ferragen;
 import DAO.CategoriaFerragenDAO;
 import DAO.ClienteDAO;
 import DAO.FerragensDAO;
 import DAO.ProjetoDAO;
+import DAO.ProjetoFerragemDAO;
 import TableModel.CategoriaFerragensTableModel;
 import TableModel.ClienteTabelModel;
 import TableModel.FerragensTableModel;
+import TableModel.ProjetoFerragemTableModel;
 import TableModel.ProjetoTableModel;
 import java.awt.Color;
 import java.util.Date;
 import java.util.List;
 import javax.swing.BorderFactory;
+import javax.swing.JComboBox;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -35,6 +39,7 @@ public class Home extends javax.swing.JFrame {
     private static Ferragens ferragens = new Ferragens();
     private static CategoriaFerragens categoriaFerragens = new CategoriaFerragens();
     private static Projeto projeto = new Projeto();
+    private boolean iniciar = false;
     
     public Home() {
         initComponents();
@@ -46,8 +51,13 @@ public class Home extends javax.swing.JFrame {
         atualizarTabelaBuscarProjeto();
         
         
-        atualizarJcItensCadastrados();
+        atualizarJcItensCadastrados(jCB_ItensFerragens);
+        atualizarJcItensCadastrados(jCB_ProjetoCategoria);
         atualizarJcProjetoCliente();
+        
+       jCB_ProjetoCategoria.setSelectedIndex(-1);
+       
+       iniciar = true;
     }
 
     /**
@@ -146,12 +156,14 @@ public class Home extends javax.swing.JFrame {
         jIF_CadastroProjeto2 = new javax.swing.JInternalFrame();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        jTb_ProjetoFerragen = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jTextField15 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jCB_ProjetoFerragen = new javax.swing.JComboBox<>();
+        jCB_ProjetoCategoria = new javax.swing.JComboBox<>();
+        jTF_Quantidade = new javax.swing.JTextField();
+        jCB_idFerragen = new javax.swing.JComboBox<>();
         jIF_CadastroCategoriaFerragens = new javax.swing.JInternalFrame();
         jPanel19 = new javax.swing.JPanel();
         jTF_DescricaoCategoriaFerragem = new javax.swing.JTextField();
@@ -854,7 +866,7 @@ public class Home extends javax.swing.JFrame {
         jPanel13.setBackground(new java.awt.Color(255, 255, 255));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jTb_ProjetoFerragen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -873,7 +885,7 @@ public class Home extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(jTb_ProjetoFerragen);
 
         jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 520, 330));
 
@@ -886,18 +898,41 @@ public class Home extends javax.swing.JFrame {
         jPanel13.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 80, -1));
 
         jButton8.setText("Adcionar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         jPanel13.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
         jTextField15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextField15.setText("Quantidade");
         jTextField15.setBorder(null);
-        jPanel13.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 80, -1));
+        jPanel13.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, -1));
 
-        jComboBox1.setEditable(true);
-        jPanel13.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 110, -1));
+        jCB_ProjetoFerragen.setEditable(true);
+        jCB_ProjetoFerragen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCB_ProjetoFerragenActionPerformed(evt);
+            }
+        });
+        jPanel13.add(jCB_ProjetoFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 110, -1));
 
-        jComboBox2.setEditable(true);
-        jPanel13.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 110, -1));
+        jCB_ProjetoCategoria.setEditable(true);
+        jCB_ProjetoCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCB_ProjetoCategoriaMouseClicked(evt);
+            }
+        });
+        jCB_ProjetoCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCB_ProjetoCategoriaActionPerformed(evt);
+            }
+        });
+        jPanel13.add(jCB_ProjetoCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 110, -1));
+        jPanel13.add(jTF_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 110, -1));
+
+        jPanel13.add(jCB_idFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         jIF_CadastroProjeto2.getContentPane().add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -1123,11 +1158,11 @@ public class Home extends javax.swing.JFrame {
     
     // <editor-fold defaultstate="collapsed" desc="Atualizar JCombox"> 
     
-    private void atualizarJcItensCadastrados(){
+    private void atualizarJcItensCadastrados(JComboBox jComboBox){
         CategoriaFerragenDAO categoriaFerragenDAO = new CategoriaFerragenDAO();
         List<CategoriaFerragens> categoriaFerragenses = categoriaFerragenDAO.listar();
         for (int i = 0; i < categoriaFerragenses.size(); i++) {
-            jCB_ItensFerragens.addItem(categoriaFerragenses.get(i).getDescricao());
+            jComboBox.addItem(categoriaFerragenses.get(i).getDescricao());
         }
     }
     
@@ -1136,6 +1171,15 @@ public class Home extends javax.swing.JFrame {
         List<Cliente> clientes = clienteDAO.listar();
         for (int i = 0; i < clientes.size(); i++) {
             jCB_ClienteProjeto.addItem(clientes.get(i).getNome());
+        }
+    }
+    
+    private void atualizarJcProjetoItens(CategoriaFerragens categoriaFerragens){
+        FerragensDAO ferragensDAO = new FerragensDAO();
+        List<Ferragens> ferragenses = ferragensDAO.listarCampos("categoriaFerragens", categoriaFerragens);
+        for (int i = 0; i < ferragenses.size(); i++) {
+            jCB_ProjetoFerragen.addItem(ferragenses.get(i).getDescricao());
+            jCB_idFerragen.addItem(String.valueOf(ferragenses.get(i).getId()));
         }
     }
     
@@ -1167,6 +1211,14 @@ public class Home extends javax.swing.JFrame {
             projetoTableModel = new ProjetoTableModel(projetoDAO.listar());
             jT_BuscarProjeto.setModel(projetoTableModel);
     }
+    ProjetoFerragemTableModel projetoFerragemTableModel;
+    public void atualizarTabelaProjetoFerragem(Projeto projeto){
+            ProjetoFerragemDAO projetoFerragemDAO = new ProjetoFerragemDAO();
+            projetoFerragemTableModel = new ProjetoFerragemTableModel(projetoFerragemDAO.listarCampos("projeto", projeto));
+            jTb_ProjetoFerragen.setModel(projetoFerragemTableModel);
+    }
+    
+    
     // </editor-fold>
     // </editor-fold>
     
@@ -1363,7 +1415,10 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel23MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-         activarJIF(jIF_Home);
+        ProjetoDAO projetoDAO = new ProjetoDAO();
+        projeto.setValorProjeto();
+        projetoDAO.salvar(projeto);
+       activarJIF(jIF_Home);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jTF_NumeroMoveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_NumeroMoveisActionPerformed
@@ -1548,6 +1603,53 @@ public class Home extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Função desabilitada");
         }
     }//GEN-LAST:event_jLabel24MouseClicked
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        if(jCB_ProjetoFerragen.getSelectedIndex() == -1){
+            JOptionPane.showMessageDialog(null, "Nenhum Produto Selecionado");
+        }else if(Integer.valueOf(jTF_Quantidade.getText()) <= 0){
+            JOptionPane.showMessageDialog(null, "Quantidade Invalida");
+        }else{
+            try{
+                projeto_ferragen projetoFerragem = new projeto_ferragen();
+                projetoFerragem.setProjeto(projeto);
+                FerragensDAO ferragensDAO = new FerragensDAO();
+                Ferragens ferragens = ferragensDAO.listarCampos("id", Integer.valueOf(jCB_idFerragen.getItemAt(jCB_ProjetoFerragen.getSelectedIndex()))).get(0);
+                projetoFerragem.setFerragens(ferragens);
+                if(testeFerragemProjeto(projeto, ferragens) != null){
+                    projetoFerragem = testeFerragemProjeto(projeto, ferragens);
+                }  
+                
+                    
+                projetoFerragem.setQuantidade(projetoFerragem.getQuantidade() + Integer.valueOf(jTF_Quantidade.getText()));
+                projetoFerragem.setValorTotal(projetoFerragem.getValorTotal() + ferragens.getValor() * Integer.valueOf(jTF_Quantidade.getText()));
+                projetoFerragem.setValorUnidade(ferragens.getValor());
+
+                ProjetoFerragemDAO projetoFerragemDAO = new ProjetoFerragemDAO();
+                projetoFerragemDAO.salvar(projetoFerragem);
+
+               atualizarTabelaProjetoFerragem(projeto);
+            
+            } catch (Exception e) {
+            }
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jCB_ProjetoFerragenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_ProjetoFerragenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCB_ProjetoFerragenActionPerformed
+
+    private void jCB_ProjetoCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCB_ProjetoCategoriaMouseClicked
+        
+    }//GEN-LAST:event_jCB_ProjetoCategoriaMouseClicked
+
+    private void jCB_ProjetoCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB_ProjetoCategoriaActionPerformed
+        if(iniciar){
+            CategoriaFerragenDAO categoriaFerragenDAO = new CategoriaFerragenDAO();
+            atualizarJcProjetoItens(categoriaFerragenDAO.listar().get(jCB_ProjetoCategoria.getSelectedIndex()));
+        }
+        
+    }//GEN-LAST:event_jCB_ProjetoCategoriaActionPerformed
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Editar"> 
@@ -1584,6 +1686,18 @@ public class Home extends javax.swing.JFrame {
         
     }
     // </editor-fold>
+    
+    //teste para saber se ja existe uma determinada ferragem no projeto
+    private projeto_ferragen testeFerragemProjeto(Projeto projeto, Ferragens ferragens){
+        ProjetoFerragemDAO ferragemDAO = new ProjetoFerragemDAO();
+        List<projeto_ferragen> lista = ferragemDAO.listarCampos2("projeto", projeto, "ferragens", ferragens);
+        if(lista.size() > 0){
+            // se existir algum ferragem relacionado o projeto retorna verdadeiro
+            return lista.get(0);
+        }
+        // se  não existir algum ferragem relacionado o projeto retorna falso
+        return null;
+    }
     
     // <editor-fold defaultstate="collapsed" desc="Limpeza de telas"> 
     
@@ -1686,8 +1800,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCB_ManterTela;
     private javax.swing.JCheckBox jCB_ManterTelaCadastroFerragens;
     private javax.swing.JCheckBox jCB_ManterTelaCategoriaFerragen;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jCB_ProjetoCategoria;
+    private javax.swing.JComboBox<String> jCB_ProjetoFerragen;
+    private javax.swing.JComboBox<String> jCB_idFerragen;
     private org.jdesktop.swingx.JXDatePicker jDP_DataFinal;
     private org.jdesktop.swingx.JXDatePicker jDP_DataInicial;
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -1772,13 +1887,14 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField jTF_FormaPagamento;
     private javax.swing.JTextField jTF_NomeCliente;
     private javax.swing.JTextField jTF_NumeroMoveis;
+    private javax.swing.JTextField jTF_Quantidade;
     private javax.swing.JTextField jTF_TelefoneCliente;
     private javax.swing.JTextField jTF_ValorFerragen;
     private javax.swing.JTable jT_BucarCategoriaFerragem;
     private javax.swing.JTable jT_BuscarCliente;
     private javax.swing.JTable jT_BuscarFerragens;
     private javax.swing.JTable jT_BuscarProjeto;
-    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTb_ProjetoFerragen;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField3;

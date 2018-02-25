@@ -31,9 +31,15 @@ public class projeto_ferragen {
     @JoinColumn(name = "ferragens_id")	
     private Ferragens ferragens;
     
-    private int valor;
+    private double valorTotal;
+    private double valorUnidade;
+    private int quantidade;
 
     public projeto_ferragen() {
+    }
+
+    public long getId() {
+        return id;
     }
 
     public Projeto getProjeto() {
@@ -52,13 +58,31 @@ public class projeto_ferragen {
         this.ferragens = ferragens;
     }
 
-    public int getValor() {
-        return valor;
+    public double getValorTotal() {
+        return valorTotal;
     }
 
-    public void setValor(int valor) {
-        this.valor = valor;
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
+
+    public double getValorUnidade() {
+        return valorUnidade;
+    }
+
+    public void setValorUnidade(double valorUnidade) {
+        this.valorUnidade = valorUnidade;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+    
+    
     
     
     

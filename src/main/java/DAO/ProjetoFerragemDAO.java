@@ -7,6 +7,8 @@ package DAO;
 
 import Classe.Projeto;
 import Classe.projeto_ferragen;
+import java.util.List;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -18,5 +20,12 @@ public class ProjetoFerragemDAO extends GenericoDAO<projeto_ferragen>{
         super(projeto_ferragen.class);
     }
     
-    
+    @Override
+    public boolean salvar(projeto_ferragen projeto) {
+        if(projeto.getId()== 0){
+            return super.salvar(projeto);
+        }else{
+            return super.editar(projeto);
+        }
+    }
 }

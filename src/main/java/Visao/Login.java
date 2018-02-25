@@ -5,6 +5,8 @@
  */
 package Visao;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lab1
@@ -154,8 +156,6 @@ public class Login extends javax.swing.JFrame {
 
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 300, 20));
-
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\WhatsApp Image 2018-01-12 at 18.54.07.jpeg")); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
