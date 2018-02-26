@@ -109,6 +109,21 @@ public class GenericoDAO<T> implements DAO<T>{
         }
         return lista;
     }
+
+    public List<T> listarCamposLike(String campo, Object valor) {
+        sessao = null;
+        List<T> lista = null;
+        try {
+            sessao = getSessao().openSession();
+            lista = sessao.createCriteria(classe).add(Restrictions.like(campo, valor)).list();
+        } catch (Exception e) {
+            System.out.println("Erro na lista de campo: " + e);
+        }
+        finally{
+            sessao.close();
+        }
+        return lista;
+    }
     public List<T> listarCampos2(String campo, Object valor, String campo2, Object valor2) {
         sessao = null;
         List<T> lista = null;

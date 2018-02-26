@@ -83,7 +83,7 @@ public class Home extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jIF_BuscarFerragens = new javax.swing.JInternalFrame();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jTF_BuscarFerragem = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jT_BuscarFerragens = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -296,10 +296,10 @@ public class Home extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField1.setText("Buscar");
-        jTextField1.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 326, -1));
+        jTF_BuscarFerragem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTF_BuscarFerragem.setText("Buscar");
+        jTF_BuscarFerragem.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
+        jPanel1.add(jTF_BuscarFerragem, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 326, -1));
 
         jT_BuscarFerragens.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -327,6 +327,11 @@ public class Home extends javax.swing.JFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 80, -1));
 
         jButton2.setText("Buscar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
         jIF_BuscarFerragens.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
@@ -1226,6 +1231,7 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Atualizar JCombox"> 
     
     private void atualizarJcItensCadastrados(JComboBox jComboBox){
+        jComboBox.removeAllItems();
         CategoriaFerragenDAO categoriaFerragenDAO = new CategoriaFerragenDAO();
         List<CategoriaFerragens> categoriaFerragenses = categoriaFerragenDAO.listar();
         for (int i = 0; i < categoriaFerragenses.size(); i++) {
@@ -1561,6 +1567,7 @@ public class Home extends javax.swing.JFrame {
                 jL_CadastrarCategoriaFerragens.setText("Cadastrar");
                 jCB_ManterTela.setVisible(true);
                 categoriaFerragens = new CategoriaFerragens();
+                atualizarJcItensCadastrados(jCB_ItensFerragens);
             }
         } catch (Exception e) {
             System.out.println("Erro no cadastro de categoria ferragem " + e);
@@ -1746,6 +1753,12 @@ public class Home extends javax.swing.JFrame {
            
         }
     }//GEN-LAST:event_jTb_ProjetoFerragenMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        FerragensDAO ferragensDAO = new FerragensDAO();
+        ferragensTableModel = new FerragensTableModel(ferragensDAO.listarCamposLike("descricao", jTF_BuscarFerragem.getText()));
+        jT_BuscarFerragens.setModel(ferragensTableModel);
+    }//GEN-LAST:event_jButton2ActionPerformed
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Editar"> 
@@ -2012,6 +2025,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField jTF_BairroCliente;
     private javax.swing.JTextField jTF_BuscarCategoriaFerragen;
     private javax.swing.JTextField jTF_BuscarCliente;
+    private javax.swing.JTextField jTF_BuscarFerragem;
     private javax.swing.JTextField jTF_CidadeCliente;
     private javax.swing.JTextField jTF_Comodo;
     private javax.swing.JTextField jTF_CpfCliente;
@@ -2029,7 +2043,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTable jT_BuscarFerragens;
     private javax.swing.JTable jT_BuscarProjeto;
     private javax.swing.JTable jTb_ProjetoFerragen;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField15;
     // End of variables declaration//GEN-END:variables
 }
