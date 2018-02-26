@@ -97,11 +97,11 @@ public class Home extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jIF_BuscarProjeto = new javax.swing.JInternalFrame();
         jPanel6 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jT_BuscarProjeto = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jCB_BuscarProjeto = new javax.swing.JComboBox<>();
         jIF_CadastroCliente = new javax.swing.JInternalFrame();
         jPanel7 = new javax.swing.JPanel();
         jTF_NomeCliente = new javax.swing.JTextField();
@@ -145,7 +145,7 @@ public class Home extends javax.swing.JFrame {
         jPanel17 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
+        jL_CadastrarProjeto = new javax.swing.JLabel();
         jTF_Comodo = new javax.swing.JTextField();
         jTF_NumeroMoveis = new javax.swing.JTextField();
         jCB_ClienteProjeto = new javax.swing.JComboBox<>();
@@ -153,6 +153,10 @@ public class Home extends javax.swing.JFrame {
         jDP_DataInicial = new org.jdesktop.swingx.JXDatePicker();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jPanel24 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTA_Comentario = new javax.swing.JTextArea();
         jIF_CadastroProjeto2 = new javax.swing.JInternalFrame();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -411,11 +415,6 @@ public class Home extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField3.setText("Buscar");
-        jTextField3.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
-        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 326, -1));
-
         jT_BuscarProjeto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -435,6 +434,11 @@ public class Home extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jT_BuscarProjeto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jT_BuscarProjetoMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jT_BuscarProjeto);
 
         jPanel6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 520, 330));
@@ -449,6 +453,9 @@ public class Home extends javax.swing.JFrame {
 
         jButton4.setText("Buscar");
         jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
+
+        jCB_BuscarProjeto.setEditable(true);
+        jPanel6.add(jCB_BuscarProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 330, -1));
 
         jIF_BuscarProjeto.getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -751,6 +758,23 @@ public class Home extends javax.swing.JFrame {
         jDesktopPane1.add(jIF_CadastroFerragens, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -30, 550, 460));
 
         jIF_CadastroProjeto.setVisible(true);
+        jIF_CadastroProjeto.addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+                jIF_CadastroProjetoInternalFrameActivated(evt);
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+            }
+        });
         jIF_CadastroProjeto.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel16.setBackground(new java.awt.Color(255, 255, 255));
@@ -764,11 +788,11 @@ public class Home extends javax.swing.JFrame {
                 jTF_FormaPagamentoActionPerformed(evt);
             }
         });
-        jPanel16.add(jTF_FormaPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 326, 20));
+        jPanel16.add(jTF_FormaPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 326, 20));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel20.setText("Cadastro de Projetos");
-        jPanel16.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+        jPanel16.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel21.setText("Voltar");
@@ -790,23 +814,25 @@ public class Home extends javax.swing.JFrame {
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
         );
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel16.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 100, 40));
+        jPanel16.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 100, 40));
 
-        jLabel23.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("Cadastrar");
-        jLabel23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+        jL_CadastrarProjeto.setBackground(new java.awt.Color(255, 255, 255));
+        jL_CadastrarProjeto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jL_CadastrarProjeto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jL_CadastrarProjeto.setText("Cadastrar");
+        jL_CadastrarProjeto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jL_CadastrarProjeto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel23MouseClicked(evt);
+                jL_CadastrarProjetoMouseClicked(evt);
             }
         });
 
@@ -814,14 +840,14 @@ public class Home extends javax.swing.JFrame {
         jPanel18.setLayout(jPanel18Layout);
         jPanel18Layout.setHorizontalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(jL_CadastrarProjeto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addComponent(jL_CadastrarProjeto, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        jPanel16.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, 100, 40));
+        jPanel16.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 100, 40));
 
         jTF_Comodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_Comodo.setText("Comodo");
@@ -831,7 +857,7 @@ public class Home extends javax.swing.JFrame {
                 jTF_ComodoActionPerformed(evt);
             }
         });
-        jPanel16.add(jTF_Comodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 160, 20));
+        jPanel16.add(jTF_Comodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 160, 20));
 
         jTF_NumeroMoveis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_NumeroMoveis.setText("Numero de Moveis");
@@ -841,20 +867,52 @@ public class Home extends javax.swing.JFrame {
                 jTF_NumeroMoveisActionPerformed(evt);
             }
         });
-        jPanel16.add(jTF_NumeroMoveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 160, 20));
+        jPanel16.add(jTF_NumeroMoveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 160, 20));
 
         jCB_ClienteProjeto.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
-        jPanel16.add(jCB_ClienteProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 330, -1));
-        jPanel16.add(jDP_DataFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 250, -1));
-        jPanel16.add(jDP_DataInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 250, -1));
+        jPanel16.add(jCB_ClienteProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 330, -1));
+        jPanel16.add(jDP_DataFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 250, -1));
+        jPanel16.add(jDP_DataInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 250, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Data Inicial");
-        jPanel16.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
+        jPanel16.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Data Final");
-        jPanel16.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+        jPanel16.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
+
+        jLabel25.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("Excluir");
+        jLabel25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel25MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
+        jPanel24.setLayout(jPanel24Layout);
+        jPanel24Layout.setHorizontalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+        );
+        jPanel24Layout.setVerticalGroup(
+            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jPanel16.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, -1));
+
+        jTA_Comentario.setColumns(20);
+        jTA_Comentario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTA_Comentario.setRows(5);
+        jTA_Comentario.setText("Comentario\n");
+        jScrollPane6.setViewportView(jTA_Comentario);
+
+        jPanel16.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 330, 100));
 
         jIF_CadastroProjeto.getContentPane().add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -868,21 +926,30 @@ public class Home extends javax.swing.JFrame {
 
         jTb_ProjetoFerragen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Descrição", "Quantidade", "Valor"
+                "Descrição", "Quantidade", "Valor Unidade", "Valor Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTb_ProjetoFerragen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTb_ProjetoFerragenMouseClicked(evt);
             }
         });
         jScrollPane4.setViewportView(jTb_ProjetoFerragen);
@@ -1268,6 +1335,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        atualizarTabelaBuscarProjeto();
         activarJIF(jIF_BuscarProjeto);
     }//GEN-LAST:event_jLabel5MouseClicked
 
@@ -1382,7 +1450,7 @@ public class Home extends javax.swing.JFrame {
         activarJIF(jIF_Home);
     }//GEN-LAST:event_jLabel21MouseClicked
 
-    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+    private void jL_CadastrarProjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_CadastrarProjetoMouseClicked
         if(jCB_ClienteProjeto.getSelectedIndex() < 0){
             JOptionPane.showMessageDialog(null, "Nenhum Cliente Selecionado");
         }else if(jTF_Comodo.getText().equals("Comodo") || jTF_Comodo.getText().isEmpty() ||
@@ -1390,8 +1458,6 @@ public class Home extends javax.swing.JFrame {
                 jTF_FormaPagamento.getText().equals("Forma de Pagamento") || jTF_FormaPagamento.getText().isEmpty()||
                 jDP_DataInicial.getDate().equals("") || jDP_DataFinal.getDate().equals("")){
             JOptionPane.showMessageDialog(null, "Algum Campo em Branco");
-        }else if(jDP_DataInicial.getDate().before(new Date()) || jDP_DataFinal.getDate().before(jDP_DataInicial.getDate())){
-            JOptionPane.showMessageDialog(null, "Datas Incompativeis");
         }else{
             try {
                 ClienteDAO clienteDAO = new ClienteDAO();
@@ -1403,16 +1469,17 @@ public class Home extends javax.swing.JFrame {
                 projeto.setDataFinal(jDP_DataFinal.getDate());
                 projeto.setAtivo(true);
                 projeto.setDataCadastro(new Date());
+                projeto.setComentario(jTA_Comentario.getText());
                 
                 ProjetoDAO projetoDAO = new ProjetoDAO();
                 projetoDAO.salvar(projeto);
-                
                 activarJIF(jIF_CadastroProjeto2);
+                jL_CadastrarProjeto.setText("Cadastrar");
             } catch (Exception e) {
                 System.out.println("Erro no cadastro de projeto part1 " + e);
             }
         }
-    }//GEN-LAST:event_jLabel23MouseClicked
+    }//GEN-LAST:event_jL_CadastrarProjetoMouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         ProjetoDAO projetoDAO = new ProjetoDAO();
@@ -1650,6 +1717,35 @@ public class Home extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jCB_ProjetoCategoriaActionPerformed
+
+    private void jIF_CadastroProjetoInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_jIF_CadastroProjetoInternalFrameActivated
+        
+    }//GEN-LAST:event_jIF_CadastroProjetoInternalFrameActivated
+
+    private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
+        if(jL_CadastrarProjeto.getText().equals("Cadastrar")){
+            JOptionPane.showMessageDialog(null, "Função desabilitada");
+        }else{
+            
+        }
+    }//GEN-LAST:event_jLabel25MouseClicked
+
+    private void jT_BuscarProjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jT_BuscarProjetoMouseClicked
+        //editar projeto
+        if(evt.getClickCount() == 2){
+           limparBuscaProjeto();
+           activarJIF(jIF_CadastroProjeto);
+           passarValoresEditarProjeto(projetoTableModel.getValueAt(jT_BuscarProjeto.getSelectedRow())); 
+           jL_CadastrarProjeto.setText("Editar");
+        }
+    }//GEN-LAST:event_jT_BuscarProjetoMouseClicked
+
+    private void jTb_ProjetoFerragenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTb_ProjetoFerragenMouseClicked
+        //editar projeto2
+        if(evt.getClickCount() == 2){
+           
+        }
+    }//GEN-LAST:event_jTb_ProjetoFerragenMouseClicked
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Editar"> 
@@ -1682,7 +1778,25 @@ public class Home extends javax.swing.JFrame {
                jCB_ItensFerragens.setSelectedIndex(i); 
                break;
            }
-        }
+        }   
+    }
+    
+    private void passarValoresEditarProjeto(Projeto projeto){
+        this.projeto = projeto;
+        jTF_Comodo.setText(projeto.getComodo()); 
+        jTF_NumeroMoveis.setText(projeto.getNumeroMoveis()); 
+        jTF_FormaPagamento.setText(projeto.getFormaPagamento()); 
+        jTA_Comentario.setText(projeto.getComentario()); 
+        jDP_DataInicial.setDate(projeto.getDataInico());
+        jDP_DataFinal.setDate(projeto.getDataFinal());
+        ClienteDAO clienteDAO = new ClienteDAO();
+        List<Cliente> clientes = clienteDAO.listar();
+        for (int i = 0; i < clientes.size(); i++) {
+           if(clientes.get(i).getId()==(projeto.getCliente().getId())){
+               jCB_ClienteProjeto.setSelectedIndex(i); 
+               break;
+           }
+        }   
         
     }
     // </editor-fold>
@@ -1746,6 +1860,21 @@ public class Home extends javax.swing.JFrame {
         jTF_BuscarCategoriaFerragen.setText("Buscar");
     }
     // </editor-fold> 
+    
+    // <editor-fold defaultstate="collapsed" desc="Limpeza de telas Projeto"> 
+    //reseta valores padrões da tela de cadastro de categoria ferragem
+    private void limparCadastroProjeto(){
+        jCB_BuscarProjeto.setSelectedIndex(0);
+        jCB_ProjetoCategoria.setSelectedIndex(0);
+        jCB_ProjetoFerragen.setSelectedIndex(0);
+        jTF_Quantidade.setText("");
+    }
+    
+     //reseta valores padrões da tela de busca de categoria ferragem
+    private void limparBuscaProjeto(){
+        jCB_BuscarProjeto.setSelectedIndex(-1);
+    }
+    // </editor-fold> 
     // </editor-fold> 
     /**
      * @param args the command line arguments
@@ -1795,6 +1924,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jCB_BuscarProjeto;
     private javax.swing.JComboBox<String> jCB_ClienteProjeto;
     private javax.swing.JComboBox<String> jCB_ItensFerragens;
     private javax.swing.JCheckBox jCB_ManterTela;
@@ -1819,6 +1949,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jL_CadastrarCategoriaFerragens;
     private javax.swing.JLabel jL_CadastrarCliente;
     private javax.swing.JLabel jL_CadastrarFerragem;
+    private javax.swing.JLabel jL_CadastrarProjeto;
     private javax.swing.JLabel jL_ExcluirCategoriaFerragem;
     private javax.swing.JLabel jL_ExcluirCliente;
     private javax.swing.JLabel jL_MsgCadastroCliente;
@@ -1837,8 +1968,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1861,6 +1992,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel24;
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1875,6 +2007,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTextArea jTA_Comentario;
     private javax.swing.JTextField jTF_BairroCliente;
     private javax.swing.JTextField jTF_BuscarCategoriaFerragen;
     private javax.swing.JTextField jTF_BuscarCliente;
@@ -1897,6 +2031,5 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTable jTb_ProjetoFerragen;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

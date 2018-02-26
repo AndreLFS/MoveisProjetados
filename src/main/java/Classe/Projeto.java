@@ -35,10 +35,12 @@ public class Projeto {
     private String comodo;
     private String numeroMoveis;
     private String formaPagamento;
+    private String comentario;
     private Date dataInico;
     private Date dataFinal;
     //data e hora que o projeto foi salvo no sistema
     private Date dataCadastro;
+    private Date dataDesativacao;
     //se ele ainda ira aparecer nas listas ou não
     private boolean ativo;
     private double valorProjeto;
@@ -129,7 +131,23 @@ public class Projeto {
         }
     }
 
+    public String getComentario() {
+        return comentario;
+    }
 
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public Date getDataDesativacao() {
+        return dataDesativacao;
+    }
+
+    public void setDataDesativacao(Date dataDesativacao) {
+        this.dataDesativacao = dataDesativacao;
+    }
+
+    
     
     
 }
