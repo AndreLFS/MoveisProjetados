@@ -5,10 +5,12 @@
  */
 package DAO;
 
+import java.math.MathContext;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -110,12 +112,12 @@ public class GenericoDAO<T> implements DAO<T>{
         return lista;
     }
 
-    public List<T> listarCamposLike(String campo, Object valor) {
+    public List<T> listarCamposLike(String campo, String valor) {
         sessao = null;
         List<T> lista = null;
         try {
             sessao = getSessao().openSession();
-            lista = sessao.createCriteria(classe).add(Restrictions.like(campo, valor)).list();
+            lista = sessao.createCriteria(classe).add(Restrictions.like(campo, valor, MatchMode.ANYWHERE)).list();
         } catch (Exception e) {
             System.out.println("Erro na lista de campo: " + e);
         }
