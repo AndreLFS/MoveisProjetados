@@ -43,7 +43,9 @@ public class Projeto {
     private Date dataDesativacao;
     //se ele ainda ira aparecer nas listas ou não
     private boolean ativo;
+    private double valorCusto;
     private double valorProjeto;
+    private double margemLucro;
     
     @OneToMany(mappedBy = "projeto")
     private Set<projeto_ferragen> projeto_ferragems = new HashSet<projeto_ferragen>();
@@ -124,11 +126,7 @@ public class Projeto {
     }
 
     public void setValorProjeto() {
-        ProjetoFerragemDAO projetoFerragemDAO = new ProjetoFerragemDAO();
-        List<projeto_ferragen> list = projetoFerragemDAO.listarCampos("projeto", this);
-        for (int i = 0; i < list.size(); i++) {
-            valorProjeto += list.get(i).getValorTotal();
-        }
+        this.valorProjeto = valorCusto * margemLucro;
     }
 
     public String getComentario() {
@@ -147,7 +145,25 @@ public class Projeto {
         this.dataDesativacao = dataDesativacao;
     }
 
-    
-    
+    public double getValorCusto() {
+        return valorCusto;
+    }
+
+    public void setValorCusto() {
+        valorCusto = 0;
+        ProjetoFerragemDAO projetoFerragemDAO = new ProjetoFerragemDAO();
+        List<projeto_ferragen> list = projetoFerragemDAO.listarCampos("projeto", this);
+        for (int i = 0; i < list.size(); i++) {
+            valorCusto += list.get(i).getValorTotal();
+        }
+    }
+
+    public double getMargemLucro() {
+        return margemLucro;
+    }
+
+    public void setMargemLucro(double margemLucro) {
+        this.margemLucro = ((margemLucro / 100) + 1.0);
+    }
     
 }

@@ -24,10 +24,10 @@ public class projeto_ferragen {
     @GeneratedValue 
     private long id;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "projeto_id")	
     private Projeto projeto;
-    @ManyToOne(targetEntity = Ferragens.class, cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity = Ferragens.class)
     @JoinColumn(name = "ferragens_id")	
     private Ferragens ferragens;
     
@@ -62,8 +62,8 @@ public class projeto_ferragen {
         return valorTotal;
     }
 
-    public void setValorTotal(double valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setValorTotal() {
+        this.valorTotal = valorUnidade * quantidade;
     }
 
     public double getValorUnidade() {

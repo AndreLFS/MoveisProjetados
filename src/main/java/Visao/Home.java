@@ -142,6 +142,8 @@ public class Home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jCB_ManterTelaCadastroFerragens = new javax.swing.JCheckBox();
         jL_MsgCadastroFerragens = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         jIF_CadastroProjeto = new javax.swing.JInternalFrame();
         jPanel16 = new javax.swing.JPanel();
         jTF_FormaPagamento = new javax.swing.JTextField();
@@ -162,6 +164,11 @@ public class Home extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTA_Comentario = new javax.swing.JTextArea();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
         jIF_CadastroProjeto2 = new javax.swing.JInternalFrame();
         jPanel13 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -173,6 +180,9 @@ public class Home extends javax.swing.JFrame {
         jCB_ProjetoCategoria = new javax.swing.JComboBox<>();
         jTF_Quantidade = new javax.swing.JTextField();
         jCB_idFerragen = new javax.swing.JComboBox<>();
+        jTextField16 = new javax.swing.JTextField();
+        jTextField17 = new javax.swing.JTextField();
+        jButton12 = new javax.swing.JButton();
         jIF_CadastroCategoriaFerragens = new javax.swing.JInternalFrame();
         jPanel19 = new javax.swing.JPanel();
         jTF_DescricaoCategoriaFerragem = new javax.swing.JTextField();
@@ -193,6 +203,8 @@ public class Home extends javax.swing.JFrame {
         jT_BucarCategoriaFerragem = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -484,7 +496,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel15.setText("Buscar Projeto");
-        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jTF_BuscarProjeto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTF_BuscarProjeto.setText("Buscar");
@@ -667,24 +679,22 @@ public class Home extends javax.swing.JFrame {
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTF_DescricaoFerragen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_DescricaoFerragen.setText("Descrição");
         jTF_DescricaoFerragen.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_DescricaoFerragen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_DescricaoFerragenActionPerformed(evt);
             }
         });
-        jPanel10.add(jTF_DescricaoFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 326, 20));
+        jPanel10.add(jTF_DescricaoFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 326, 20));
 
         jTF_ValorFerragen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_ValorFerragen.setText("Valor Compra");
         jTF_ValorFerragen.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_ValorFerragen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_ValorFerragenActionPerformed(evt);
             }
         });
-        jPanel10.add(jTF_ValorFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 326, 20));
+        jPanel10.add(jTF_ValorFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 210, 300, 20));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel12.setText("Cadastro de Ferragens");
@@ -749,8 +759,7 @@ public class Home extends javax.swing.JFrame {
         jPanel10.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 100, 40));
 
         jCB_ItensFerragens.setEditable(true);
-        jCB_ItensFerragens.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
-        jPanel10.add(jCB_ItensFerragens, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 280, -1));
+        jPanel10.add(jCB_ItensFerragens, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 280, -1));
 
         jButton11.setText("+");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -758,7 +767,7 @@ public class Home extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 40, -1));
+        jPanel10.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 40, -1));
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -785,12 +794,20 @@ public class Home extends javax.swing.JFrame {
         jPanel10.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Categoria:");
-        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+        jLabel1.setText("Valor Compra:");
+        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         jCB_ManterTelaCadastroFerragens.setText("Manter na Tela");
         jPanel10.add(jCB_ManterTelaCadastroFerragens, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
         jPanel10.add(jL_MsgCadastroFerragens, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 250, 20));
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel30.setText("Categoria:");
+        jPanel10.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel31.setText("Descrição:");
+        jPanel10.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         jIF_CadastroFerragens.getContentPane().add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -820,18 +837,17 @@ public class Home extends javax.swing.JFrame {
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTF_FormaPagamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_FormaPagamento.setText("Forma de Pagamento");
         jTF_FormaPagamento.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_FormaPagamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_FormaPagamentoActionPerformed(evt);
             }
         });
-        jPanel16.add(jTF_FormaPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 326, 20));
+        jPanel16.add(jTF_FormaPagamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 270, 20));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel20.setText("Cadastro de Projetos");
-        jPanel16.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
+        jPanel16.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel21.setText("Voltar");
@@ -841,13 +857,18 @@ public class Home extends javax.swing.JFrame {
                 jLabel21MouseClicked(evt);
             }
         });
-        jPanel16.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        jPanel16.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel22.setBackground(new java.awt.Color(255, 255, 255));
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("Limpar");
         jLabel22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -889,37 +910,39 @@ public class Home extends javax.swing.JFrame {
         jPanel16.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, 100, 40));
 
         jTF_Comodo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_Comodo.setText("Comodo");
         jTF_Comodo.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_Comodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_ComodoActionPerformed(evt);
             }
         });
-        jPanel16.add(jTF_Comodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 160, 20));
+        jTF_Comodo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTF_ComodoKeyPressed(evt);
+            }
+        });
+        jPanel16.add(jTF_Comodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 330, 20));
 
         jTF_NumeroMoveis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_NumeroMoveis.setText("Numero de Moveis");
         jTF_NumeroMoveis.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_NumeroMoveis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_NumeroMoveisActionPerformed(evt);
             }
         });
-        jPanel16.add(jTF_NumeroMoveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 160, 20));
+        jPanel16.add(jTF_NumeroMoveis, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 270, 20));
 
-        jCB_ClienteProjeto.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
-        jPanel16.add(jCB_ClienteProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 330, -1));
-        jPanel16.add(jDP_DataFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 250, -1));
-        jPanel16.add(jDP_DataInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 250, -1));
+        jPanel16.add(jCB_ClienteProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 330, -1));
+        jPanel16.add(jDP_DataFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 320, -1));
+        jPanel16.add(jDP_DataInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 320, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Data Inicial");
-        jPanel16.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
+        jLabel2.setText("Numero de Moveis:");
+        jPanel16.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Data Final");
-        jPanel16.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, -1, -1));
+        jLabel3.setText("Data Final:");
+        jPanel16.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -948,10 +971,29 @@ public class Home extends javax.swing.JFrame {
         jTA_Comentario.setColumns(20);
         jTA_Comentario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTA_Comentario.setRows(5);
-        jTA_Comentario.setText("Comentario\n");
         jScrollPane6.setViewportView(jTA_Comentario);
 
-        jPanel16.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 330, 100));
+        jPanel16.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 320, 100));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel23.setText("Data Inicial:");
+        jPanel16.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel26.setText("Comentario:");
+        jPanel16.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel27.setText("Forma de Pagamento:");
+        jPanel16.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, 20));
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel28.setText("Comodo:");
+        jPanel16.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel29.setText("Cliente:");
+        jPanel16.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         jIF_CadastroProjeto.getContentPane().add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -992,8 +1034,10 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jScrollPane4.setViewportView(jTb_ProjetoFerragen);
+        jTb_ProjetoFerragen.getAccessibleContext().setAccessibleName("");
+        jTb_ProjetoFerragen.getAccessibleContext().setAccessibleDescription("");
 
-        jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 520, 330));
+        jPanel13.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 520, 300));
 
         jButton7.setText("Finalizar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -1001,7 +1045,7 @@ public class Home extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel13.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 80, -1));
+        jPanel13.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 80, -1));
 
         jButton8.setText("Adcionar");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -1009,12 +1053,12 @@ public class Home extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanel13.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
+        jPanel13.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, 80, -1));
 
         jTextField15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField15.setText("Quantidade");
+        jTextField15.setText("Ferragem:");
         jTextField15.setBorder(null);
-        jPanel13.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 80, -1));
+        jPanel13.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 70, -1));
 
         jCB_ProjetoFerragen.setEditable(true);
         jCB_ProjetoFerragen.addActionListener(new java.awt.event.ActionListener() {
@@ -1022,7 +1066,7 @@ public class Home extends javax.swing.JFrame {
                 jCB_ProjetoFerragenActionPerformed(evt);
             }
         });
-        jPanel13.add(jCB_ProjetoFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 110, -1));
+        jPanel13.add(jCB_ProjetoFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 290, -1));
 
         jCB_ProjetoCategoria.setEditable(true);
         jCB_ProjetoCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1035,10 +1079,28 @@ public class Home extends javax.swing.JFrame {
                 jCB_ProjetoCategoriaActionPerformed(evt);
             }
         });
-        jPanel13.add(jCB_ProjetoCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 110, -1));
-        jPanel13.add(jTF_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 110, -1));
+        jPanel13.add(jCB_ProjetoCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 290, 20));
+        jPanel13.add(jTF_Quantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 290, -1));
 
-        jPanel13.add(jCB_idFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
+        jPanel13.add(jCB_idFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+
+        jTextField16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField16.setText("Quantidade");
+        jTextField16.setBorder(null);
+        jPanel13.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 80, -1));
+
+        jTextField17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField17.setText("Categoria:");
+        jTextField17.setBorder(null);
+        jPanel13.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, -1));
+
+        jButton12.setText("Excluir");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 80, -1));
 
         jIF_CadastroProjeto2.getContentPane().add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -1061,7 +1123,7 @@ public class Home extends javax.swing.JFrame {
         jPanel19.add(jTF_DescricaoCategoriaFerragem, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 326, 20));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel17.setText("Cadastro de Categora Ferragens");
+        jLabel17.setText("Cadastro de Categoria Ferragens");
         jPanel19.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -1222,9 +1284,22 @@ public class Home extends javax.swing.JFrame {
         jPanel27.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 80, -1));
 
         jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel27.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
 
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel33.setText("Buscar Categoria Ferragem");
+        jPanel27.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
         jIF_BuscaCategoriaFerragem.getContentPane().add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel32.setText("Buscar Projeto");
+        jIF_BuscaCategoriaFerragem.getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jDesktopPane1.add(jIF_BuscaCategoriaFerragem, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -30, 550, 460));
 
@@ -1249,6 +1324,7 @@ public class Home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
+    ProjetoDAO projetoDAO = new ProjetoDAO();
     // <editor-fold defaultstate="collapsed" desc="Funções de atualização de tela"> 
     //função responsavel por mudar a tela ativa
     //pegando a tela que o usuario solicitou ela desativa todas mantendo so uma visivel
@@ -1277,6 +1353,7 @@ public class Home extends javax.swing.JFrame {
     }
     
     private void atualizarJcProjetoCliente(){
+        jCB_ClienteProjeto.removeAllItems();
         ClienteDAO clienteDAO = new ClienteDAO();
         List<Cliente> clientes = clienteDAO.listar();
         for (int i = 0; i < clientes.size(); i++) {
@@ -1321,8 +1398,8 @@ public class Home extends javax.swing.JFrame {
             projetoTableModel = new ProjetoTableModel(projetoDAO.listar());
             jT_BuscarProjeto.setModel(projetoTableModel);
     }
-    ProjetoFerragemTableModel projetoFerragemTableModel;
-    public void atualizarTabelaProjetoFerragem(Projeto projeto){
+    static ProjetoFerragemTableModel projetoFerragemTableModel;
+    public static void atualizarTabelaProjetoFerragem(Projeto projeto){
             ProjetoFerragemDAO projetoFerragemDAO = new ProjetoFerragemDAO();
             projetoFerragemTableModel = new ProjetoFerragemTableModel(projetoFerragemDAO.listarCampos("projeto", projeto));
             jTb_ProjetoFerragen.setModel(projetoFerragemTableModel);
@@ -1396,7 +1473,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         
+        atualizarJcProjetoCliente();
         activarJIF(jIF_CadastroProjeto);
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -1428,15 +1505,15 @@ public class Home extends javax.swing.JFrame {
                 ClienteDAO clienteDAO = new ClienteDAO();
                 clienteDAO.salvar(cliente);
                 
+                jL_CadastrarCliente.setText("Cadastrar");
+                jCB_ManterTela.setVisible(true);
+                limparCadastroCliente();
                 if(jCB_ManterTela.isSelected()){
                     jL_MsgCadastroCliente.setText("Cliente " + cliente.getNome()+" salvo com sucesso");
                 }else{
                     JOptionPane.showMessageDialog(null, "Cliente salvo com sucesso");
                     activarJIF(jIf_BuscarCliente);
-                    limparCadastroCliente();
                 }
-                jL_CadastrarCliente.setText("Cadastrar");
-                jCB_ManterTela.setVisible(true);
                 cliente = new Cliente();
             }
         } catch (Exception e) {
@@ -1476,6 +1553,7 @@ public class Home extends javax.swing.JFrame {
                         activarJIF(jIF_BuscarFerragens);
                         jL_CadastrarFerragem.setText("");
                         jCB_ManterTelaCadastroFerragens.setSelected(false);
+                        atualizarTabelaBuscarFerragen();
                     }
                     limparCadastroFerragem();
                     jL_CadastrarFerragem.setText("Cadastrar");
@@ -1498,9 +1576,9 @@ public class Home extends javax.swing.JFrame {
     private void jL_CadastrarProjetoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_CadastrarProjetoMouseClicked
         if(jCB_ClienteProjeto.getSelectedIndex() < 0){
             JOptionPane.showMessageDialog(null, "Nenhum Cliente Selecionado");
-        }else if(jTF_Comodo.getText().equals("Comodo") || jTF_Comodo.getText().isEmpty() ||
-                jTF_NumeroMoveis.getText().equals("Numero de Moveis") || jTF_NumeroMoveis.getText().isEmpty() ||
-                jTF_FormaPagamento.getText().equals("Forma de Pagamento") || jTF_FormaPagamento.getText().isEmpty()||
+        }else if (jTF_Comodo.getText().isEmpty() ||
+                jTF_NumeroMoveis.getText().isEmpty() ||
+                jTF_FormaPagamento.getText().isEmpty()||
                 jDP_DataInicial.getDate().equals("") || jDP_DataFinal.getDate().equals("")){
             JOptionPane.showMessageDialog(null, "Algum Campo em Branco");
         }else{
@@ -1518,24 +1596,44 @@ public class Home extends javax.swing.JFrame {
                 
                 ProjetoDAO projetoDAO = new ProjetoDAO();
                 projetoDAO.salvar(projeto);
+                if(jL_CadastrarProjeto.getText().equals("Editar")){
+                    atualizarTabelaProjetoFerragem(projeto);
+                }
                 activarJIF(jIF_CadastroProjeto2);
                 jL_CadastrarProjeto.setText("Cadastrar");
+                
+                limparCadastroProjeto();
             } catch (Exception e) {
-                System.out.println("Erro no cadastro de projeto part1 " + e);
+                System.out.println("Erro no cadastro de projeto " + e);
             }
         }
     }//GEN-LAST:event_jL_CadastrarProjetoMouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        ProjetoDAO projetoDAO = new ProjetoDAO();
-        projeto.setValorProjeto();
-        projetoDAO.salvar(projeto);
-       activarJIF(jIF_Home);
-    }//GEN-LAST:event_jButton7ActionPerformed
+        if(JOptionPane.showConfirmDialog(null, "Deseja realmente finalizar o processo") == 0){
+            try {
+                double margem;
+                do {                    
+                    margem = Double.valueOf(JOptionPane.showInputDialog("Digite a marge de lucro de 0-100"));
+                } while (margem < 0 || margem > 100);
+                
+                
+                projeto.setMargemLucro(margem);
+                projeto.setValorCusto();
+                projeto.setValorProjeto();
 
-    private void jTF_NumeroMoveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_NumeroMoveisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTF_NumeroMoveisActionPerformed
+                projetoDAO.salvar(projeto);
+                activarJIF(jIF_Home);
+            } catch (NumberFormatException e) {
+                System.out.println(e);
+                System.out.println(e);
+                System.out.println(e);
+                System.out.println(e);
+                System.out.println(e);
+            }
+        }
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jTF_BuscarClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF_BuscarClienteKeyPressed
         // TODO add your handling code here:
@@ -1735,9 +1833,9 @@ public class Home extends javax.swing.JFrame {
                 
                     
                 projetoFerragem.setQuantidade(projetoFerragem.getQuantidade() + Integer.valueOf(jTF_Quantidade.getText()));
-                projetoFerragem.setValorTotal(projetoFerragem.getValorTotal() + ferragens.getValor() * Integer.valueOf(jTF_Quantidade.getText()));
                 projetoFerragem.setValorUnidade(ferragens.getValor());
-
+                projetoFerragem.setValorTotal();
+                
                 ProjetoFerragemDAO projetoFerragemDAO = new ProjetoFerragemDAO();
                 projetoFerragemDAO.salvar(projetoFerragem);
 
@@ -1772,7 +1870,17 @@ public class Home extends javax.swing.JFrame {
         if(jL_CadastrarProjeto.getText().equals("Cadastrar")){
             JOptionPane.showMessageDialog(null, "Função desabilitada");
         }else{
-            
+            if(JOptionPane.showConfirmDialog(null, "Deseja Excluir?") == 0){
+                try {
+                    ProjetoDAO projetoDAO = new ProjetoDAO();
+                    projetoDAO.deletar(projeto);
+                    JOptionPane.showMessageDialog(null, "Deletado com sucecsso");
+                    atualizarTabelaBuscarProjeto();
+                    activarJIF(jIF_BuscarProjeto);
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
         }
     }//GEN-LAST:event_jLabel25MouseClicked
 
@@ -1818,6 +1926,37 @@ public class Home extends javax.swing.JFrame {
     private void jLabel18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel18MouseEntered
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        CategoriaFerragenDAO categoriaFerragenDAO = new CategoriaFerragenDAO();
+        categoriaFerragensTableModel = new CategoriaFerragensTableModel(categoriaFerragenDAO.listarCamposLike("descricao", jTF_BuscarCategoriaFerragen.getText()));
+        jT_BucarCategoriaFerragem.setModel(categoriaFerragensTableModel);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        limparCadastroProjeto();
+    }//GEN-LAST:event_jLabel22MouseClicked
+
+    private void jTF_ComodoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF_ComodoKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_ComodoKeyPressed
+
+    private void jTF_NumeroMoveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_NumeroMoveisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTF_NumeroMoveisActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        if(JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?") == 0){
+            try {
+                ProjetoFerragemDAO projetoFerragemDAO = new ProjetoFerragemDAO();
+                projetoFerragemDAO.deletar(projetoFerragemTableModel.getValueAt(jTb_ProjetoFerragen.getSelectedRow()));
+                JOptionPane.showMessageDialog(null, "Item excluido com sucesso");
+                atualizarTabelaProjetoFerragem(projeto);
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    }//GEN-LAST:event_jButton12ActionPerformed
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Editar"> 
@@ -1897,7 +2036,6 @@ public class Home extends javax.swing.JFrame {
         jTF_BairroCliente.setText("Bairro");
         jTF_CidadeCliente.setText("Cidade");
         jL_MsgCadastroCliente.setText("");
-        jCB_ManterTela.setSelected(false);
     }
     //reseta valores padrões da tela de busca de cliente
     private void limparBuscaCliente(){
@@ -1938,7 +2076,14 @@ public class Home extends javax.swing.JFrame {
     private void limparCadastroProjeto(){
         jCB_ProjetoCategoria.setSelectedIndex(0);
         jCB_ProjetoFerragen.setSelectedIndex(0);
+        jCB_ClienteProjeto.setSelectedIndex(0);
+        jTF_Comodo.setText("");
+        jTF_NumeroMoveis.setText("");
+        jTF_FormaPagamento.setText("");
+        jTA_Comentario.setText("");
         jTF_Quantidade.setText("");
+        jDP_DataInicial.setDate(null);
+        jDP_DataFinal.setDate(null);
     }
     
      //reseta valores padrões da tela de busca de categoria ferragem
@@ -1987,6 +2132,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2040,9 +2186,18 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2103,7 +2258,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTable jT_BuscarCliente;
     private javax.swing.JTable jT_BuscarFerragens;
     private javax.swing.JTable jT_BuscarProjeto;
-    private javax.swing.JTable jTb_ProjetoFerragen;
+    private static javax.swing.JTable jTb_ProjetoFerragen;
     private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
     // End of variables declaration//GEN-END:variables
 }
