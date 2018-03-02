@@ -10,6 +10,7 @@ import Classe.Cliente;
 import Classe.Ferragens;
 import Classe.Projeto;
 import Classe.projeto_ferragen;
+import Config.Util;
 import DAO.CategoriaFerragenDAO;
 import DAO.ClienteDAO;
 import DAO.FerragensDAO;
@@ -22,6 +23,7 @@ import TableModel.ProjetoFerragemTableModel;
 import TableModel.ProjetoTableModel;
 import java.awt.Color;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
@@ -107,6 +109,7 @@ public class Home extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jTF_BuscarProjeto = new javax.swing.JTextField();
+        jButton14 = new javax.swing.JButton();
         jIF_CadastroCliente = new javax.swing.JInternalFrame();
         jPanel7 = new javax.swing.JPanel();
         jTF_NomeCliente = new javax.swing.JTextField();
@@ -507,6 +510,19 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jTF_BuscarProjeto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 326, -1));
+
+        jButton14.setText("Imprimir");
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton14MouseClicked(evt);
+            }
+        });
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
         jIF_BuscarProjeto.getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -1957,6 +1973,26 @@ public class Home extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14MouseClicked
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        if(jT_BuscarProjeto.getSelectedRow() >= 0){
+            projeto = projetoTableModel.getValueAt(jT_BuscarProjeto.getSelectedRow());
+            try{
+                HashMap parametros = new HashMap();
+                parametros.put("IdProjeto", projeto.getId());
+                Util.imprimir("Relatorios\\ListaFerragemProjeto.jrxml", parametros);
+            } catch (Exception e) {
+                System.out.println("Erro na geração do prontuario " + e);
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "Nenhum Projeto Selecionado");
+        }
+        
+    }//GEN-LAST:event_jButton14ActionPerformed
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Editar"> 
@@ -2133,6 +2169,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListaFerragemProjeto" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1d0ef031-a052-4c6a-a188-1de48b262b3e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="IdProjeto" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    categoriaferragens.descricao  AS categoria,
+    ferragens.descricao AS ferragem,
+    projeto_ferragen.quantidade AS Quantidade,
+    projeto_ferragen.valorUnidade AS Valor,
+    projeto.comodo AS comodo,
+    cliente.nome AS cliente,
+    projeto.dataFinal AS data
+FROM
+	projeto_ferragen
+
+INNER JOIN projeto ON projeto.id = projeto_ferragen.projeto_id
+INNER JOIN cliente ON cliente.id = projeto.cliente_id
+INNER JOIN ferragens ON projeto_ferragen.ferragens_id = ferragens.id
+INNER JOIN categoriaferragens ON categoriaferragens.id = ferragens.categoriaFerragens_id]]>
+	</queryString>
+	<field name="categoria" class="java.lang.String"/>
+	<field name="ferragem" class="java.lang.String"/>
+	<field name="Quantidade" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Valor" class="java.lang.Double"/>
+	<field name="comodo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cliente" class="java.lang.String"/>
+	<field name="data" class="java.sql.Timestamp"/>
+	<group name="Group1"/>
+	<group name="Group2"/>
+	<group name="Group3"/>
+	<group name="Group4"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#66B0AF" uuid="82b6ac16-5c4c-452f-a0c9-a1f28e0a65d9"/>
+				<staticText>
+					<reportElement x="20" y="20" width="305" height="43" forecolor="#FFFFFF" uuid="b830f0ef-255e-4d64-b556-25b655f736a6"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Lista de ferragens]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="393" y="43" width="202" height="20" forecolor="#FFFFFF" uuid="4d2d8be1-bd17-4d71-8aac-086af35242a3"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Comodo: " + $F{comodo}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="393" y="20" width="202" height="20" forecolor="#FFFFFF" uuid="bf780e96-5911-4851-af0a-8fc533fd8b36"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Cliente: " + $F{cliente}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="393" y="63" width="202" height="20" forecolor="#FFFFFF" uuid="21e656c8-b752-4f01-b0bc-c2a652a147c7"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Data de Entrega: " + $F{data}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="149" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="277de2aa-2007-45a9-9bf0-8849cce8d5bb"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Categoria]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="0bc7a54a-62d2-44c3-8988-79bed5f322e0"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="332" y="0" width="97" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="722aba59-8067-4c1c-8bdd-2e93b75c6039"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="429" y="0" width="126" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a8f02b23-ae14-4ba6-82a3-3fb2c07a0dbb"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Unidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="149" y="0" width="183" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f4874e3d-491e-4008-9f48-722e0ab06b0c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ferragem]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="341" y="0" width="88" height="20" uuid="e4204913-3bf1-498e-8efd-06981d1f90c3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Quantidade}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="149" height="20" uuid="0ea804ed-464b-41ba-9693-22a8a28e4888"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{categoria}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="149" y="0" width="192" height="20" uuid="183a4034-0a24-4c5c-b1fc-65d887afee34"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ferragem}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="429" y="0" width="126" height="20" uuid="a0d91b03-1d03-4066-94ea-e3cacab1e372"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="028d28ff-e6fa-4e8a-9dee-77704167bf0d"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="b1a2c844-1903-4b97-baad-0387309bab90"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="eea19501-a167-4c62-b9f2-c026f485af37"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
