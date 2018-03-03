@@ -6,6 +6,7 @@
 package TableModel;
 
 import Classe.Projeto;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -30,6 +31,7 @@ public class ProjetoTableModel extends AbstractTableModel{
         return colunas.length;
     }
     
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
     public Object getValueAt(int rowIndex, int columnIndex) {
         Projeto projeto = projetos.get(rowIndex);
         switch (columnIndex){
@@ -38,7 +40,7 @@ public class ProjetoTableModel extends AbstractTableModel{
             case 1:
                 return projeto.getComodo();
             case 2:
-                return projeto.getDataFinal();
+                return formato.format(projeto.getDataFinal());
             case 3:
                 return projeto.getValorProjeto();
         }

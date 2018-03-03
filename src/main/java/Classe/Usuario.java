@@ -21,7 +21,7 @@ public class Usuario {
     @Id
     @GeneratedValue 
     private int id;
-    private String loguin;
+    private String login;
     private String senha;
     //se o usuario esta ativo ou não
     private boolean ativo;
@@ -29,8 +29,8 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String loguin, String senha) {
-        this.loguin = loguin;
+    public Usuario(String login, String senha) {
+        this.login = login;
         this.senha = senha;
     }
 
@@ -39,7 +39,7 @@ public class Usuario {
     }
 
     public String getLoguin() {
-        return loguin;
+        return login;
     }
 
     public String getSenha() {

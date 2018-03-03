@@ -14,14 +14,16 @@
     projeto_ferragen.valorUnidade AS Valor,
     projeto.comodo AS comodo,
     cliente.nome AS cliente,
-    projeto.dataFinal AS data
+    DATE_FORMAT(projeto.dataFinal, "%d/%m/%Y") AS data
 FROM
 	projeto_ferragen
 
 INNER JOIN projeto ON projeto.id = projeto_ferragen.projeto_id
 INNER JOIN cliente ON cliente.id = projeto.cliente_id
 INNER JOIN ferragens ON projeto_ferragen.ferragens_id = ferragens.id
-INNER JOIN categoriaferragens ON categoriaferragens.id = ferragens.categoriaFerragens_id]]>
+INNER JOIN categoriaferragens ON categoriaferragens.id = ferragens.categoriaFerragens_id
+
+WHERE projeto_ferragen.projeto_id = $P{IdProjeto};]]>
 	</queryString>
 	<field name="categoria" class="java.lang.String"/>
 	<field name="ferragem" class="java.lang.String"/>
@@ -33,7 +35,7 @@ INNER JOIN categoriaferragens ON categoriaferragens.id = ferragens.categoriaFerr
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="cliente" class="java.lang.String"/>
-	<field name="data" class="java.sql.Timestamp"/>
+	<field name="data" class="java.lang.String"/>
 	<group name="Group1"/>
 	<group name="Group2"/>
 	<group name="Group3"/>

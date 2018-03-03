@@ -5,6 +5,12 @@
  */
 package Visao;
 
+import Classe.Usuario;
+import DAO.UsuarioDAO;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +25,23 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
     }
-
+    
+    private void loguin(){
+        if(jTF_email.getText().equals("")  || new String(jPF_senha.getPassword()).isEmpty()){
+            JOptionPane.showMessageDialog(null, "Existem algum campo em branco");
+        }else{
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            List<Usuario> usuarios = usuarioDAO.listarCampos2("login", jTF_email.getText(), "senha", new String(jPF_senha.getPassword()));
+            if(usuarios.size() >= 1){
+                this.dispose();
+                Home home = new Home();
+                home.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario ou senha invalidos");
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,6 +69,7 @@ public class Login extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(191, 154, 83));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,11 +162,21 @@ public class Login extends javax.swing.JFrame {
                 jTF_emailActionPerformed(evt);
             }
         });
+        jTF_email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTF_emailKeyPressed(evt);
+            }
+        });
         jPanel2.add(jTF_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 260, 30));
 
         jPF_senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPF_senhaActionPerformed(evt);
+            }
+        });
+        jPF_senha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPF_senhaKeyPressed(evt);
             }
         });
         jPanel2.add(jPF_senha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 260, 30));
@@ -169,16 +202,16 @@ public class Login extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(862, 538));
+        setSize(new java.awt.Dimension(851, 528));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     private void jL_loguinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseClicked
-      
+        loguin();
     }//GEN-LAST:event_jL_loguinMouseClicked
 
     private void jL_sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseClicked
-        
+        this.dispose();
     }//GEN-LAST:event_jL_sairMouseClicked
 
     private void jTF_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTF_emailActionPerformed
@@ -194,7 +227,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jP_loguinMouseMoved
 
     private void jL_loguinMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseMoved
-        
+       
     }//GEN-LAST:event_jL_loguinMouseMoved
 
     private void jL_loguinMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_loguinMouseExited
@@ -212,6 +245,18 @@ public class Login extends javax.swing.JFrame {
     private void jL_sairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_sairMouseExited
         
     }//GEN-LAST:event_jL_sairMouseExited
+
+    private void jPF_senhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPF_senhaKeyPressed
+       if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            loguin();
+        }
+    }//GEN-LAST:event_jPF_senhaKeyPressed
+
+    private void jTF_emailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTF_emailKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            loguin();
+        }
+    }//GEN-LAST:event_jTF_emailKeyPressed
 
     /**
      * @param args the command line arguments

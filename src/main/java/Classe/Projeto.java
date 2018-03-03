@@ -20,6 +20,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -36,7 +38,9 @@ public class Projeto {
     private String numeroMoveis;
     private String formaPagamento;
     private String comentario;
+    @Temporal(TemporalType.DATE)
     private Date dataInico;
+    @Temporal(TemporalType.DATE)
     private Date dataFinal;
     //data e hora que o projeto foi salvo no sistema
     private Date dataCadastro;

@@ -7,8 +7,10 @@ package DAO;
 
 import Classe.Cliente;
 import Classe.Projeto;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import org.exolab.castor.types.DateTime;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
@@ -36,7 +38,6 @@ public class ProjetoDAO extends GenericoDAO<Projeto>{
         projeto.setDataDesativacao(new Date());
         return super.editar(projeto);
     }
-    
     @Override
     public List<Projeto> listar() {
         List<Projeto> lista=null;
@@ -45,8 +46,10 @@ public class ProjetoDAO extends GenericoDAO<Projeto>{
             lista = sessao.createCriteria(Projeto.class).
                     //restrição que so permite que aparecam clientes ativos
                     add(Restrictions.eq("ativo", true)).
-                    //ordem na lista por data de cadastro.
-                    addOrder(Order.desc("dataCadastro")).list();
+                    //restringe para so aparecer processo com data de entrega igual a hoje ou depois
+                    add(Restrictions.ge("dataFinal", new Date())).
+                    //ordem na lista por data de entrega.
+                    addOrder(Order.asc("dataFinal")).list();
         } catch (Exception e) {
             System.out.println("Erro na lista: " + e);
         }

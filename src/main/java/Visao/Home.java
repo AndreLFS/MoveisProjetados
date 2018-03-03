@@ -119,7 +119,6 @@ public class Home extends javax.swing.JFrame {
         jTF_BairroCliente = new javax.swing.JTextField();
         jTF_CidadeCliente = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -128,6 +127,13 @@ public class Home extends javax.swing.JFrame {
         jL_MsgCadastroCliente = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jL_ExcluirCliente = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
         jIF_CadastroFerragens = new javax.swing.JInternalFrame();
         jPanel10 = new javax.swing.JPanel();
         jTF_DescricaoFerragen = new javax.swing.JTextField();
@@ -199,6 +205,7 @@ public class Home extends javax.swing.JFrame {
         jL_ExcluirCategoriaFerragem = new javax.swing.JLabel();
         jL_MsgCategoriaFerragem = new javax.swing.JLabel();
         jCB_ManterTelaCategoriaFerragen = new javax.swing.JCheckBox();
+        jLabel9 = new javax.swing.JLabel();
         jIF_BuscaCategoriaFerragem = new javax.swing.JInternalFrame();
         jPanel27 = new javax.swing.JPanel();
         jTF_BuscarCategoriaFerragen = new javax.swing.JTextField();
@@ -207,9 +214,11 @@ public class Home extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         JPanelPlanoFundo.setBackground(new java.awt.Color(255, 255, 255));
         JPanelPlanoFundo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -522,7 +531,7 @@ public class Home extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
+        jPanel6.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 80, -1));
 
         jIF_BuscarProjeto.getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -535,78 +544,62 @@ public class Home extends javax.swing.JFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTF_NomeCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_NomeCliente.setText("Nome Completo");
         jTF_NomeCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_NomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_NomeClienteActionPerformed(evt);
             }
         });
-        jPanel7.add(jTF_NomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 326, 20));
+        jPanel7.add(jTF_NomeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 170, 270, 20));
 
         jTF_TelefoneCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_TelefoneCliente.setText("Telefone");
         jTF_TelefoneCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_TelefoneCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_TelefoneClienteActionPerformed(evt);
             }
         });
-        jPanel7.add(jTF_TelefoneCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 326, 20));
+        jPanel7.add(jTF_TelefoneCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 200, 250, 20));
 
         jTF_CpfCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_CpfCliente.setText("Cpf");
         jTF_CpfCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_CpfCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_CpfClienteActionPerformed(evt);
             }
         });
-        jPanel7.add(jTF_CpfCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 326, 20));
+        jPanel7.add(jTF_CpfCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 230, 280, 20));
 
         jTF_EnderecoCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_EnderecoCliente.setText("Endereço");
         jTF_EnderecoCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_EnderecoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_EnderecoClienteActionPerformed(evt);
             }
         });
-        jPanel7.add(jTF_EnderecoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, 326, 20));
+        jPanel7.add(jTF_EnderecoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 260, 250, 20));
 
         jTF_BairroCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_BairroCliente.setText("Bairro");
         jTF_BairroCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_BairroCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_BairroClienteActionPerformed(evt);
             }
         });
-        jPanel7.add(jTF_BairroCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 160, 20));
+        jPanel7.add(jTF_BairroCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 100, 20));
 
         jTF_CidadeCliente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_CidadeCliente.setText("Cidade");
         jTF_CidadeCliente.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_CidadeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_CidadeClienteActionPerformed(evt);
             }
         });
-        jPanel7.add(jTF_CidadeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 160, 20));
+        jPanel7.add(jTF_CidadeCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 110, 20));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("Cadastro de Clientes");
         jPanel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel9.setText("Voltar");
-        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -683,6 +676,40 @@ public class Home extends javax.swing.JFrame {
         );
 
         jPanel7.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 100, -1));
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel34.setText("Voltar");
+        jLabel34.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel34MouseClicked(evt);
+            }
+        });
+        jPanel7.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel35.setText("Cidade:");
+        jPanel7.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel36.setText("Nome:");
+        jPanel7.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel37.setText("Telefone:");
+        jPanel7.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+
+        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel38.setText("Cpf:");
+        jPanel7.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
+
+        jLabel39.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel39.setText("Endereço:");
+        jPanel7.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
+
+        jLabel40.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel40.setText("Bairro:");
+        jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, -1));
 
         jIF_CadastroCliente.getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -1129,14 +1156,13 @@ public class Home extends javax.swing.JFrame {
         jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTF_DescricaoCategoriaFerragem.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_DescricaoCategoriaFerragem.setText("Descrição");
         jTF_DescricaoCategoriaFerragem.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
         jTF_DescricaoCategoriaFerragem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTF_DescricaoCategoriaFerragemActionPerformed(evt);
             }
         });
-        jPanel19.add(jTF_DescricaoCategoriaFerragem, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 326, 20));
+        jPanel19.add(jTF_DescricaoCategoriaFerragem, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 200, 250, 20));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel17.setText("Cadastro de Categoria Ferragens");
@@ -1233,6 +1259,10 @@ public class Home extends javax.swing.JFrame {
         jCB_ManterTelaCategoriaFerragen.setText("Manter na Tela");
         jPanel19.add(jCB_ManterTelaCategoriaFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Categoria:");
+        jPanel19.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+
         jIF_CadastroCategoriaFerragens.getContentPane().add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
         jDesktopPane1.add(jIF_CadastroCategoriaFerragens, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -30, 550, 460));
@@ -1267,9 +1297,8 @@ public class Home extends javax.swing.JFrame {
         jPanel27.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTF_BuscarCategoriaFerragen.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTF_BuscarCategoriaFerragen.setText("Buscar");
         jTF_BuscarCategoriaFerragen.setBorder(BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(102,176,175)));
-        jPanel27.add(jTF_BuscarCategoriaFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 326, -1));
+        jPanel27.add(jTF_BuscarCategoriaFerragen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 326, -1));
 
         jT_BucarCategoriaFerragem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1297,7 +1326,7 @@ public class Home extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel27.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 80, -1));
+        jPanel27.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 80, -1));
 
         jButton6.setText("Buscar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -1305,11 +1334,21 @@ public class Home extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel27.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
+        jPanel27.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel33.setText("Buscar Categoria Ferragem");
-        jPanel27.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jPanel27.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        jLabel41.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel41.setText("Voltar");
+        jLabel41.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel41.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel41MouseClicked(evt);
+            }
+        });
+        jPanel27.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jIF_BuscaCategoriaFerragem.getContentPane().add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 520, 420));
 
@@ -1378,6 +1417,8 @@ public class Home extends javax.swing.JFrame {
     }
     
     private void atualizarJcProjetoItens(CategoriaFerragens categoriaFerragens){
+        jCB_ProjetoFerragen.removeAllItems();
+        jCB_idFerragen.removeAllItems();
         FerragensDAO ferragensDAO = new FerragensDAO();
         List<Ferragens> ferragenses = ferragensDAO.listarCampos("categoriaFerragens", categoriaFerragens);
         for (int i = 0; i < ferragenses.size(); i++) {
@@ -1493,20 +1534,16 @@ public class Home extends javax.swing.JFrame {
         activarJIF(jIF_CadastroProjeto);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        activarJIF(jIF_Home);
-    }//GEN-LAST:event_jLabel9MouseClicked
-
     private void jL_CadastrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jL_CadastrarClienteMouseClicked
         try {
             //teste se existe algum campo vazio, testando tanto como campo vazio e com o texto padrao
             // caso algum campo esteja vazio o cliente não podera ser cadastrado
-            if(jTF_NomeCliente.getText().equals("Nome Completo") || jTF_NomeCliente.getText().isEmpty() ||
-               jTF_CpfCliente.getText().equals("Cpf") || jTF_CpfCliente.getText().isEmpty() ||
-               jTF_TelefoneCliente.getText().equals("Telefone") || jTF_TelefoneCliente.getText().isEmpty() ||
-               jTF_EnderecoCliente.getText().equals("Endereço") || jTF_EnderecoCliente.getText().isEmpty() ||
-               jTF_BairroCliente.getText().equals("Bairro") || jTF_BairroCliente.getText().isEmpty() ||
-               jTF_CidadeCliente.getText().equals("Cidade") || jTF_CidadeCliente.getText().isEmpty()){
+            if(jTF_NomeCliente.getText().isEmpty() ||
+               jTF_CpfCliente.getText().isEmpty() ||
+               jTF_TelefoneCliente.getText().isEmpty() ||
+               jTF_EnderecoCliente.getText().isEmpty() ||
+               jTF_BairroCliente.getText().isEmpty() ||
+               jTF_CidadeCliente.getText().isEmpty()){
                 JOptionPane.showMessageDialog(this, "Algum campo esta em branco");
             }else{
                 cliente.setNome(jTF_NomeCliente.getText());
@@ -1617,8 +1654,10 @@ public class Home extends javax.swing.JFrame {
                 }
                 activarJIF(jIF_CadastroProjeto2);
                 jL_CadastrarProjeto.setText("Cadastrar");
-                
                 limparCadastroProjeto();
+                iniciar = false;
+                atualizarJcItensCadastrados(jCB_ProjetoCategoria);
+                iniciar = true;
             } catch (Exception e) {
                 System.out.println("Erro no cadastro de projeto " + e);
             }
@@ -1632,19 +1671,12 @@ public class Home extends javax.swing.JFrame {
                 do {                    
                     margem = Double.valueOf(JOptionPane.showInputDialog("Digite a marge de lucro de 0-100"));
                 } while (margem < 0 || margem > 100);
-                
-                
                 projeto.setMargemLucro(margem);
                 projeto.setValorCusto();
                 projeto.setValorProjeto();
-
                 projetoDAO.salvar(projeto);
                 activarJIF(jIF_Home);
             } catch (NumberFormatException e) {
-                System.out.println(e);
-                System.out.println(e);
-                System.out.println(e);
-                System.out.println(e);
                 System.out.println(e);
             }
         }
@@ -1696,7 +1728,7 @@ public class Home extends javax.swing.JFrame {
         //cadastro de categoria de ferragem
         try {
             //primeiro testa os campos vazios
-            if(jTF_DescricaoCategoriaFerragem.getText().equals("Descrição") || jTF_DescricaoCategoriaFerragem.getText().isEmpty()){
+            if(jTF_DescricaoCategoriaFerragem.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Existem campos em branco");
             }else{
                 //se n tiver seta os valores na variavel CategoriaFerragem
@@ -1875,7 +1907,6 @@ public class Home extends javax.swing.JFrame {
             CategoriaFerragenDAO categoriaFerragenDAO = new CategoriaFerragenDAO();
             atualizarJcProjetoItens(categoriaFerragenDAO.listar().get(jCB_ProjetoCategoria.getSelectedIndex()));
         }
-        
     }//GEN-LAST:event_jCB_ProjetoCategoriaActionPerformed
 
     private void jIF_CadastroProjetoInternalFrameActivated(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_jIF_CadastroProjetoInternalFrameActivated
@@ -1993,6 +2024,15 @@ public class Home extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel34MouseClicked
+
+    private void jLabel41MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel41MouseClicked
+        atualizarJcItensCadastrados(jCB_ItensFerragens);
+        activarJIF(jIF_CadastroFerragens);
+    }//GEN-LAST:event_jLabel41MouseClicked
     // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Editar"> 
@@ -2235,7 +2275,15 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
